@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import { Plus, MessageCircle } from 'lucide-react';
 import { LINKS } from '../config/links';
 import { buildUrlWithParams } from '../utils/utm';
 
@@ -43,71 +43,78 @@ export const Faq: React.FC = () => {
   const [openIndices, setOpenIndices] = useState<number[]>([0]);
 
   const toggleIndex = (index: number) => {
-    setOpenIndices((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
+    setOpenIndices((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]));
   };
 
   const whatsappUrl = buildUrlWithParams(LINKS.WHATSAPP);
 
   return (
-    <section className="py-12 sm:py-16 px-4 max-w-3xl mx-auto">
-      <div className="text-center">
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
-          PERGUNTAS FREQUENTES
-        </h2>
-      </div>
+    <section className="px-4 py-14 sm:py-20 bg-areia-2/60">
+      <div className="max-w-5xl mx-auto grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14">
+        <div>
+          <h2 className="text-[2rem] leading-[1] sm:text-5xl text-mar">Perguntas frequentes</h2>
 
-      {/* Accordion List */}
-      <div className="mt-8 space-y-3">
-        {FAQ_DATA.map((item, idx) => {
-          const isOpen = openIndices.includes(idx);
-          return (
-            <div
-              key={idx}
-              className="rounded-2xl bg-white border border-[#E2DBC9] overflow-hidden transition-all duration-200 shadow-2xs"
+          {/* Dúvida fora da lista: WhatsApp (no desktop fica ao lado das perguntas) */}
+          <div className="hidden lg:block mt-8">
+            <p className="text-lg font-bold text-mar">Ainda ficou com alguma dúvida?</p>
+            <p className="mt-1 text-[15px] text-tinta-2">Fale direto com o nosso suporte antes de começar.</p>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 min-h-[3.25rem] px-5 rounded-[14px] bg-[#1FAF55] hover:bg-[#1A9A4A] text-white font-bold text-[16px] transition-colors"
             >
-              <button
-                onClick={() => toggleIndex(idx)}
-                className="w-full p-4 sm:p-5 flex items-center justify-between gap-4 text-left font-bold text-sm sm:text-base text-[#0E4B75] hover:text-[#062842] transition-colors cursor-pointer"
-                aria-expanded={isOpen}
-              >
-                <span>{item.question}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                    isOpen ? 'rotate-180 text-[#FF9F1C]' : ''
-                  }`}
-                />
-              </button>
+              <MessageCircle className="w-5 h-5" aria-hidden="true" />
+              Tirar dúvidas no WhatsApp
+            </a>
+          </div>
+        </div>
 
-              {isOpen && (
-                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 bg-[#FAF7F0] font-medium">
-                  {item.answer}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+        <div>
+          <ul className="border-t border-areia-3">
+            {FAQ_DATA.map((item, idx) => {
+              const isOpen = openIndices.includes(idx);
+              const id = `faq-${idx}`;
+              return (
+                <li key={idx} className="border-b border-areia-3">
+                  <h3 className="text-inherit" style={{ fontStretch: '100%', letterSpacing: 0 }}>
+                    <button
+                      onClick={() => toggleIndex(idx)}
+                      className="w-full py-5 flex items-center justify-between gap-4 text-left text-[17px] font-bold text-mar cursor-pointer"
+                      aria-expanded={isOpen}
+                      aria-controls={id}
+                    >
+                      <span>{item.question}</span>
+                      <Plus
+                        className={`w-5 h-5 shrink-0 text-sol-2 transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </h3>
+                  {isOpen && (
+                    <p id={id} className="pb-5 pr-8 -mt-1 text-[16px] leading-relaxed text-tinta-2">
+                      {item.answer}
+                    </p>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
 
-      {/* Título abaixo: AINDA FICOU COM ALGUMA DÚVIDA? */}
-      <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-[#E2DBC9] text-center space-y-3 shadow-sm">
-        <h3 className="text-xl sm:text-2xl font-bold text-[#0E4B75] uppercase font-heading">
-          AINDA FICOU COM ALGUMA DÚVIDA?
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-600 font-medium">
-          Fale direto com o nosso suporte antes de começar.
-        </p>
-        <div className="pt-2">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-4 rounded-2xl bg-[#25D366] hover:bg-[#1fb355] text-white font-black text-sm sm:text-base tracking-wide transition-all shadow-md active:scale-95 cursor-pointer uppercase"
-          >
-            <MessageCircle className="w-5 h-5 fill-current" />
-            <span>TIRAR DÚVIDAS NO WHATSAPP</span>
-          </a>
+          {/* Celular: WhatsApp abaixo das perguntas */}
+          <div className="lg:hidden mt-10">
+            <p className="text-xl font-bold text-mar">Ainda ficou com alguma dúvida?</p>
+            <p className="mt-1 text-[15px] text-tinta-2">Fale direto com o nosso suporte antes de começar.</p>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 flex items-center justify-center gap-2 min-h-[3.5rem] px-5 rounded-[14px] bg-[#1FAF55] hover:bg-[#1A9A4A] text-white font-bold text-[17px] transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" aria-hidden="true" />
+              Tirar dúvidas no WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>

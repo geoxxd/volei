@@ -1,4 +1,5 @@
 import React from 'react';
+import { Zap, Infinity as InfinityIcon } from 'lucide-react';
 import { scrollToPlanos } from '../utils/utm';
 
 interface BonusItem {
@@ -7,7 +8,6 @@ interface BonusItem {
   desc: string;
   originalPrice: string;
   isNew?: boolean;
-  icon: string;
   shortName: string;
 }
 
@@ -18,7 +18,6 @@ const BONUSES: BonusItem[] = [
     shortName: 'Planejamento semanal',
     desc: 'Saiba qual fundamento trabalhar em cada dia da semana, separado por nível da turma.',
     originalPrice: 'R$ 67',
-    icon: '📅',
   },
   {
     numberString: '02',
@@ -26,7 +25,6 @@ const BONUSES: BonusItem[] = [
     shortName: '30 aulas montadas',
     desc: 'Do aquecimento ao jogo final, na sequência certa. É só abrir e seguir.',
     originalPrice: 'R$ 47',
-    icon: '📋',
   },
   {
     numberString: '03',
@@ -34,7 +32,6 @@ const BONUSES: BonusItem[] = [
     shortName: 'Turma mista e particular',
     desc: 'Ajuste cada exercício ao nível e ao número de alunos, de 1 aluno até a turma cheia.',
     originalPrice: 'R$ 37',
-    icon: '👥',
   },
   {
     numberString: '04',
@@ -43,7 +40,6 @@ const BONUSES: BonusItem[] = [
     desc: 'Um caminho pronto para levar a turma do fundamento ao jogo, semana a semana.',
     originalPrice: 'R$ 97',
     isNew: true,
-    icon: '🚀',
   },
   {
     numberString: '05',
@@ -52,105 +48,92 @@ const BONUSES: BonusItem[] = [
     desc: 'Avalie cada aluno por fundamento e mostre para ele o quanto já melhorou.',
     originalPrice: 'R$ 57',
     isNew: true,
-    icon: '📈',
   },
 ];
 
 export const Bonuses: React.FC = () => {
   return (
-    <section className="relative py-14 sm:py-20 px-4 bg-[#0B2A44] overflow-hidden">
-      {/* Brilho de fundo */}
-      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[620px] h-[320px] bg-[#FF9F1C]/20 blur-3xl rounded-full pointer-events-none" />
-
-      <div className="relative max-w-2xl mx-auto text-center">
-        {/* Selo */}
-        <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-[#FF9F1C] text-[#0B2A44] text-xs font-black uppercase tracking-wider mb-3 shadow-md">
-          ⭐ BÔNUS EXCLUSIVOS
+    <section className="px-4 py-14 sm:py-20 bg-noite text-white">
+      <div className="max-w-5xl mx-auto">
+        <div className="max-w-2xl">
+          <p className="text-[15px] font-semibold text-sol">Só no plano Completo</p>
+          <h2 className="mt-2 text-[2.4rem] leading-[0.98] sm:text-6xl">Leve hoje +5 bônus grátis</h2>
+          <p className="mt-4 text-[17px] sm:text-lg leading-relaxed text-slate-300">
+            Tudo o que fecha a sua rotina de professor, do planejamento da semana à evolução de cada aluno.
+          </p>
         </div>
 
-        {/* Título */}
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-wide uppercase leading-tight">
-          LEVE HOJE <span className="text-[#FFC145]">+ 5 BÔNUS</span> GRÁTIS
-        </h2>
-        <p className="mt-3 text-sm sm:text-base text-slate-300 font-medium">
-          Tudo o que fecha a sua rotina de professor, do planejamento da semana à evolução de cada aluno.
-        </p>
+        <div className="mt-10 grid lg:grid-cols-[1.35fr_1fr] gap-10 lg:gap-14 items-start">
+          {/* Lista de bônus */}
+          <ol className="border-t border-white/15">
+            {BONUSES.map((bonus) => (
+              <li key={bonus.numberString} className="grid grid-cols-[3.25rem_1fr] sm:grid-cols-[4.5rem_1fr] gap-3 py-5 border-b border-white/15">
+                <span
+                  className="titulo text-sol num text-[2.6rem] sm:text-6xl leading-[0.85]"
+                  style={{ fontStretch: '72%' }}
+                  aria-label={`Bônus ${bonus.numberString}`}
+                >
+                  {bonus.numberString}
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-xl sm:text-2xl leading-tight">
+                    {bonus.name}
+                    {bonus.isNew && (
+                      <span className="ml-2 align-middle inline-block text-[12px] font-bold text-noite bg-linha rounded px-1.5 py-[1px]" style={{ fontStretch: '100%' }}>
+                        Novo
+                      </span>
+                    )}
+                  </h3>
+                  <p className="mt-1.5 text-[15px] sm:text-base leading-relaxed text-slate-300">{bonus.desc}</p>
+                  <p className="mt-2 text-[14px] font-semibold num">
+                    <span className="text-slate-400 line-through mr-2">{bonus.originalPrice}</span>
+                    <span className="text-linha">Hoje grátis</span>
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
 
-        {/* Lista de bônus */}
-        <div className="mt-8 space-y-3 text-left">
-          {BONUSES.map((bonus) => (
-            <div
-              key={bonus.numberString}
-              className="relative flex items-stretch gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:border-[#FFC145]/60 transition-colors"
-            >
-              {/* Bloco do número */}
-              <div className="shrink-0 w-[72px] sm:w-[88px] rounded-xl bg-gradient-to-br from-[#FFC145] to-[#FF9F1C] flex flex-col items-center justify-center text-[#0B2A44] shadow-lg">
-                <span className="text-2xl sm:text-3xl leading-none">{bonus.icon}</span>
-                <span className="mt-1.5 text-[10px] sm:text-[11px] font-black uppercase tracking-wider">
-                  Bônus {bonus.numberString}
+          {/* Total no formato de comprovante */}
+          <div className="lg:sticky lg:top-16">
+            <div className="rounded-xl bg-papel text-tinta shadow-[0_24px_40px_-20px_rgba(0,0,0,0.6)]">
+              <div className="px-5 pt-5 pb-4">
+                <p className="text-[13px] font-bold text-tinta-2">Seus bônus</p>
+                <ul className="mt-3 space-y-2 text-[15px] num">
+                  {BONUSES.map((bonus) => (
+                    <li key={bonus.numberString} className="flex justify-between gap-3">
+                      <span className="truncate text-tinta-2">
+                        <span className="text-tinta/50 mr-1.5">{bonus.numberString}</span>
+                        {bonus.shortName}
+                      </span>
+                      <span className="shrink-0 font-semibold text-tinta-2">{bonus.originalPrice}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mx-5 border-t-2 border-dashed border-areia-3" />
+              <div className="px-5 py-4 flex items-end justify-between gap-3">
+                <span className="text-[15px] font-bold text-mar leading-tight">Valor total dos bônus</span>
+                <span className="text-right num">
+                  <span className="block text-[15px] font-semibold text-tinta/45 line-through">R$ 305</span>
+                  <span className="block titulo text-4xl text-[#0E8A5F] leading-none">R$ 0,00</span>
                 </span>
               </div>
-
-              {/* Texto */}
-              <div className="flex-1 min-w-0 py-0.5">
-                {bonus.isNew && (
-                  <span className="inline-block mb-1 text-[10px] font-black uppercase tracking-wider bg-rose-500 text-white px-2 py-0.5 rounded-full">
-                    Novo
-                  </span>
-                )}
-                <h3 className="text-[15px] sm:text-lg font-bold text-white leading-snug">
-                  {bonus.name}
-                </h3>
-                <p className="mt-1 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {bonus.desc}
-                </p>
-                <div className="mt-2 flex items-center gap-2">
-                  <span className="text-xs sm:text-sm font-semibold text-slate-400 line-through">
-                    {bonus.originalPrice}
-                  </span>
-                  <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide bg-emerald-400 text-[#0B2A44] px-2 py-0.5 rounded-md">
-                    Hoje grátis
-                  </span>
-                </div>
-              </div>
             </div>
-          ))}
-        </div>
 
-        {/* Total em formato de "comprovante" */}
-        <div className="mt-8 rounded-2xl bg-white text-left shadow-xl overflow-hidden">
-          <div className="px-5 pt-5 pb-3 space-y-1.5 text-sm">
-            {BONUSES.map((bonus) => (
-              <div key={bonus.numberString} className="flex justify-between gap-3 text-slate-600">
-                <span className="truncate">Bônus {bonus.numberString} · {bonus.shortName}</span>
-                <span className="shrink-0 font-semibold">{bonus.originalPrice}</span>
-              </div>
-            ))}
-          </div>
-          <div className="mx-5 border-t-2 border-dashed border-slate-200" />
-          <div className="px-5 py-4 flex items-center justify-between">
-            <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#0E4B75]">
-              Valor total dos bônus
-            </span>
-            <span className="text-right">
-              <span className="block text-sm font-bold text-slate-400 line-through">R$ 305</span>
-              <span className="block text-2xl sm:text-3xl font-black text-emerald-600 leading-none">R$ 0,00</span>
-            </span>
-          </div>
-        </div>
-
-        {/* Botão */}
-        <div className="mt-6 space-y-2">
-          <button
-            onClick={scrollToPlanos}
-            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-sm sm:text-base tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
-          >
-            QUERO OS 5 BÔNUS JUNTO
-          </button>
-          <div className="text-xs sm:text-sm font-bold text-slate-300 flex items-center justify-center gap-4 pt-1">
-            <span>⚡ Acesso imediato</span>
-            <span className="text-slate-500">|</span>
-            <span>♾️ Vitalício</span>
+            <div className="mt-6">
+              <button onClick={scrollToPlanos} className="btn-compra">
+                Quero os 5 bônus junto
+              </button>
+              <ul className="mt-4 flex justify-center gap-6 text-[15px] font-semibold text-slate-300">
+                <li className="flex items-center gap-1.5">
+                  <Zap className="w-4 h-4 text-sol" aria-hidden="true" /> Acesso imediato
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <InfinityIcon className="w-4 h-4 text-sol" aria-hidden="true" /> Vitalício
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -1,98 +1,93 @@
 import React from 'react';
+import { Volleyball, Tag, TrendingUp, Smartphone, Timer, Trophy, Shuffle, RefreshCw } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { scrollToPlanos } from '../utils/utm';
 
 interface FeatureItem {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   description: string;
-  accent: string;
-  bg?: string;
-  badge?: string;
-  fullWidth?: boolean;
 }
 
 const FEATURES: FeatureItem[] = [
   {
-    icon: '🏐',
+    icon: Volleyball,
     title: '240 exercícios feitos para a areia',
     description: 'Nada de treino de quadra adaptado. Cada exercício foi pensado para areia, vento e turma pequena.',
-    accent: 'border-[#E2DBC9] hover:border-[#FF9F1C] hover:shadow-md',
   },
   {
-    icon: '🔢',
+    icon: Tag,
     title: 'O Código da Areia',
     description: 'Nível, fundamento e número de alunos em cada exercício. Você acha o certo em segundos.',
-    accent: 'border-[#E2DBC9] hover:border-[#0E4B75] hover:shadow-md',
   },
   {
-    icon: '📈',
+    icon: TrendingUp,
     title: 'Do iniciante ao avançado',
     description: 'Para a turma que ainda erra a manchete e para quem já quer treinar side-out e transição.',
-    accent: 'border-[#E2DBC9] hover:border-[#05D179] hover:shadow-md',
   },
   {
-    icon: '📲',
+    icon: Smartphone,
     title: 'Direto no seu celular',
     description: 'Acesso liberado na hora. Você abre na arena e aplica.',
-    accent: 'border-[#E2DBC9] hover:border-[#0284C7] hover:shadow-md',
   },
-  {
-    icon: '🎛️',
-    title: 'Modo Arena',
-    description: 'O app conduz a aula com você: timer de cada bloco, placar do jogo, sorteio de duplas e rodízio. Você só olha para a turma.',
-    accent: 'border-2 border-[#0284C7]/60 hover:border-[#0284C7] shadow-md ring-1 ring-[#0284C7]/20',
-    bg: 'bg-gradient-to-br from-white via-cyan-50/30 to-amber-50/20',
-    badge: 'EXCLUSIVO',
-  },
+];
+
+const ARENA = [
+  { icon: Timer, label: 'Timer de cada bloco' },
+  { icon: Trophy, label: 'Placar do jogo' },
+  { icon: Shuffle, label: 'Sorteio de duplas' },
+  { icon: RefreshCw, label: 'Rodízio' },
 ];
 
 export const Features: React.FC = () => {
   return (
-    <section className="py-12 sm:py-16 px-4 max-w-4xl mx-auto">
-      <div className="text-center">
-        {/* Title */}
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
-          TUDO QUE VOCÊ VAI RECEBER
-        </h2>
-        {/* Subtitle */}
-        <p className="mt-2.5 text-sm sm:text-base text-slate-700 max-w-xl mx-auto leading-relaxed font-medium">
-          240 exercícios prontos para você parar de improvisar e chegar na arena com a aula na mão.
-        </p>
-      </div>
+    <section className="px-4 py-14 sm:py-20">
+      <div className="max-w-5xl mx-auto">
+        <div className="max-w-2xl">
+          <h2 className="text-[2rem] leading-[1.02] sm:text-5xl text-mar">Tudo que você vai receber</h2>
+          <p className="mt-4 text-[17px] sm:text-lg leading-relaxed text-tinta-2">
+            240 exercícios prontos para você parar de improvisar e chegar na arena com a aula na mão.
+          </p>
+        </div>
 
-      {/* Cards Grid */}
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {FEATURES.map((feat) => (
-          <div
-            key={feat.title}
-            className={`group p-6 rounded-2xl ${feat.bg || 'bg-white'} border ${feat.accent} transition-all duration-200 shadow-sm relative overflow-hidden flex flex-col justify-between`}
-          >
-            {feat.badge && (
-              <span className="absolute top-3.5 right-3.5 text-[10px] font-black uppercase tracking-wider bg-[#0284C7] text-white px-2 py-0.5 rounded-full shadow-2xs">
-                {feat.badge}
+        <ul className="mt-10 grid sm:grid-cols-2 gap-x-10 border-t border-areia-3">
+          {FEATURES.map(({ icon: Icon, title, description }) => (
+            <li key={title} className="flex gap-4 py-6 border-b border-areia-3">
+              <span className="w-11 h-11 shrink-0 grid place-items-center rounded-lg bg-mar text-white">
+                <Icon className="w-5 h-5" aria-hidden="true" />
               </span>
-            )}
-            <div>
-              <div className="text-3xl sm:text-4xl mb-3">{feat.icon}</div>
-              <h3 className="text-base sm:text-lg font-bold text-[#0E4B75] font-heading flex items-center gap-1.5">
-                <span>{feat.icon} {feat.title}</span>
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                {feat.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl leading-tight text-mar">{title}</h3>
+                <p className="mt-1.5 text-[15px] sm:text-base leading-relaxed text-tinta-2">{description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
 
-      {/* Button */}
-      <div className="mt-8 max-w-md mx-auto text-center">
-        <button
-          onClick={scrollToPlanos}
-          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-sm sm:text-base tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
-        >
-          QUERO MONTAR MINHAS AULAS PELO APP
-        </button>
+        {/* Modo Arena: só no plano Completo */}
+        <div className="mt-8 rounded-2xl bg-noite text-white p-6 sm:p-9 grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-center">
+          <div>
+            <p className="inline-block text-[13px] font-bold text-noite bg-linha rounded px-2 py-0.5">Só no plano Completo</p>
+            <h3 className="mt-3 text-3xl sm:text-4xl leading-none">Modo Arena</h3>
+            <p className="mt-3 text-[15px] sm:text-base leading-relaxed text-slate-300 max-w-md">
+              O app conduz a aula com você: timer de cada bloco, placar do jogo, sorteio de duplas e rodízio. Você só olha para a turma.
+            </p>
+          </div>
+          <ul className="grid grid-cols-2 gap-2 sm:gap-3">
+            {ARENA.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-center gap-2.5 rounded-xl border border-linha/30 px-3 py-3 text-[14px] sm:text-[15px] font-semibold">
+                <Icon className="w-5 h-5 shrink-0 text-linha" aria-hidden="true" />
+                {label}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-10 max-w-md mx-auto">
+          <button onClick={scrollToPlanos} className="btn-compra">
+            Quero montar minhas aulas pelo app
+          </button>
+        </div>
       </div>
     </section>
   );

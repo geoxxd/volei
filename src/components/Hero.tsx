@@ -1,60 +1,77 @@
 import React from 'react';
+import { Volleyball, Zap, Gift } from 'lucide-react';
 import { AppMockup } from './AppMockup';
 import { scrollToPlanos } from '../utils/utm';
 
+/** Quadra vista de cima, desenhada atrás do celular */
+const QuadraVistaDeCima: React.FC = () => (
+  <div aria-hidden="true" className="absolute inset-x-2 sm:inset-x-6 top-[8%] bottom-[8%] rounded-[6px] bg-areia-2">
+    {/* linhas externas */}
+    <div className="absolute inset-3 sm:inset-4 border-[3px] border-papel" />
+    {/* rede */}
+    <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[5px] bg-mar/80" />
+    <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-mar" />
+    <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-mar" />
+  </div>
+);
+
 export const Hero: React.FC = () => {
-
   return (
-    <section className="relative pt-12 pb-12 sm:pt-16 sm:pb-16 px-4 max-w-4xl mx-auto text-center overflow-hidden">
-      {/* Background subtle coastal atmosphere glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[360px] bg-gradient-to-b from-[#FF9F1C]/10 via-[#0E4B75]/10 to-transparent blur-3xl pointer-events-none -z-10" />
+    <section className="relative px-4 pt-6 pb-14 sm:pt-10 sm:pb-20">
+      <div className="max-w-6xl mx-auto">
+        {/* Marca */}
+        <div className="flex items-center gap-2 text-mar">
+          <Volleyball className="w-6 h-6" strokeWidth={2.2} aria-hidden="true" />
+          <span className="titulo text-lg leading-none">Código da Areia</span>
+        </div>
 
-      {/* Main Headline */}
-      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0E4B75] leading-[1.15] max-w-3xl mx-auto text-balance">
-        <span className="text-[#FF9F1C] font-black">+240</span> Exercícios de Vôlei de Areia{' '}
-        <span className="underline decoration-[#0284C7] decoration-[4px] underline-offset-6 text-[#0E4B75]">
-          Prontos
-        </span>{' '}
-        para a sua próxima aula
-      </h1>
+        <div className="mt-6 sm:mt-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-14 items-center">
+          {/* Texto + CTA */}
+          <div>
+            <h1 className="text-[2.6rem] leading-[0.98] sm:text-6xl lg:text-[4.6rem] text-mar">
+              +240 exercícios de vôlei de areia prontos para a sua próxima aula
+            </h1>
 
-      {/* Subheadline */}
-      <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
-        Tudo num app no seu celular, você abre, escolhe pelo nível e pelo número de alunos e aplica direto na arena.
-      </p>
+            <p className="mt-5 sm:mt-6 text-[17px] sm:text-xl leading-relaxed text-tinta-2 max-w-[34rem]">
+              Tudo num app no seu celular, você abre, escolhe pelo nível e pelo número de alunos e aplica direto na arena.
+            </p>
 
-      {/* Mockup do celular com o app aberto */}
-      <div className="my-8 sm:my-10">
-        <AppMockup activeScreen="exercise" />
-      </div>
+            {/* No celular, o aparelho aparece aqui; no desktop ele fica na coluna da direita */}
+            <div className="lg:hidden relative mt-7 py-5">
+              <QuadraVistaDeCima />
+              <div className="relative">
+                <AppMockup activeScreen="exercise" compact />
+              </div>
+            </div>
 
+            <div className="mt-8 lg:mt-10 max-w-md">
+              <button onClick={scrollToPlanos} className="btn-compra text-lg">
+                Quero os 240 exercícios no meu celular
+              </button>
 
-      {/* Primary CTA Button (Coral Fluorescente de Alta Conversão) */}
-      <div className="w-full max-w-md mx-auto">
-        <button
-          onClick={scrollToPlanos}
-          className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-base sm:text-lg tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
-        >
-          QUERO OS 240 EXERCÍCIOS NO MEU CELULAR
-        </button>
-      </div>
+              <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px] font-semibold text-tinta-2">
+                <li className="flex items-center gap-1.5">
+                  <Zap className="w-4 h-4 text-sol-2" aria-hidden="true" /> Acesso imediato
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <Gift className="w-4 h-4 text-sol-2" aria-hidden="true" /> Bônus grátis
+                </li>
+              </ul>
+            </div>
 
-      {/* Badges / Selos lado a lado */}
-      <div className="mt-4 flex items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-slate-700">
-        <span className="flex items-center gap-1.5 text-[#0E4B75]">
-          ⚡ ACESSO IMEDIATO
-        </span>
-        <span className="text-slate-300">|</span>
-        <span className="flex items-center gap-1.5 text-[#D97706]">
-          🎁 BÔNUS GRÁTIS
-        </span>
-      </div>
+            <p className="mt-8 pt-5 border-t border-areia-3/70 text-[15px] font-semibold text-mar max-w-md">
+              Feito para quem dá aula na praia e na arena.
+            </p>
+          </div>
 
-      {/* Prova social (trocar por número real de professores quando houver) */}
-      <div className="mt-6 pt-5 border-t border-slate-300/70 max-w-lg mx-auto">
-        <p className="text-[#0E4B75] font-bold text-sm sm:text-base">
-          🏖️ Feito para quem dá aula na praia e na arena
-        </p>
+          {/* Desktop: aparelho sobre a quadra */}
+          <div className="hidden lg:block relative py-10">
+            <QuadraVistaDeCima />
+            <div className="relative">
+              <AppMockup activeScreen="exercise" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

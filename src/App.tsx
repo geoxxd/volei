@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Hero } from './components/Hero';
+import { CodigoExplicado } from './components/CodigoExplicado';
 import { AppPreviewCarousel } from './components/AppPreviewCarousel';
 import { Features } from './components/Features';
 import { Bonuses } from './components/Bonuses';
@@ -16,48 +17,50 @@ export default function App() {
   const [isUpsellModalOpen, setIsUpsellModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F7F4EE] text-[#0F172A] flex flex-col font-sans selection:bg-[#FF9F1C] selection:text-white">
+    <div className="min-h-screen flex flex-col">
       {/* 1. FAIXA FIXA NO TOPO */}
       <TopBanner />
 
       {/* Espaçador para compensar a faixa fixa */}
       <div className="h-9 sm:h-10" />
 
-      {/* 2. TOPO (HERO) */}
-      <Hero />
+      <main>
+        {/* 2. TOPO (HERO) */}
+        <Hero />
 
-      {/* 3. PRÉVIA DO APP */}
-      <AppPreviewCarousel />
+        {/* 3. COMO FUNCIONA O CÓDIGO DA AREIA */}
+        <CodigoExplicado />
 
-      {/* 4. TUDO QUE VOCÊ VAI RECEBER */}
-      <Features />
+        {/* 4. PRÉVIA DO APP */}
+        <AppPreviewCarousel />
 
-      {/* 5. BÔNUS */}
-      <Bonuses />
+        {/* 5. TUDO QUE VOCÊ VAI RECEBER */}
+        <Features />
 
-      {/* 6. PLANOS (id="planos") */}
-      <Pricing onOpenUpsell={() => setIsUpsellModalOpen(true)} />
+        {/* 6. BÔNUS */}
+        <Bonuses />
 
-      {/* 7. DEPOIMENTOS (oculto com display:none conforme solicitado) */}
-      <Testimonials />
+        {/* 7. PLANOS (id="planos") */}
+        <Pricing onOpenUpsell={() => setIsUpsellModalOpen(true)} />
 
-      {/* 8. GARANTIA */}
-      <Guarantee />
+        {/* 8. DEPOIMENTOS (oculto até ter prints reais) */}
+        <Testimonials />
 
-      {/* 9. PERGUNTAS FREQUENTES */}
-      <Faq />
+        {/* 9. GARANTIA */}
+        <Guarantee />
 
-      {/* 10. FECHAMENTO */}
-      <Closing />
+        {/* 10. PERGUNTAS FREQUENTES */}
+        <Faq />
+
+        {/* 11. FECHAMENTO */}
+        <Closing />
+      </main>
 
       {/* RODAPÉ */}
       <Footer />
 
-      {/* 11. POP-UP (UPSELL DO PLANO BÁSICO) */}
-      <UpsellModal
-        isOpen={isUpsellModalOpen}
-        onClose={() => setIsUpsellModalOpen(false)}
-      />
+      {/* POP-UP (UPSELL DO PLANO BÁSICO) */}
+      <UpsellModal isOpen={isUpsellModalOpen} onClose={() => setIsUpsellModalOpen(false)} />
     </div>
   );
 }
