@@ -1,8 +1,14 @@
 import React from 'react';
 import { scrollToPlanos } from '../utils/utm';
+import iconAreia from '../assets/images/features/feature-areia.webp';
+import iconCodigo from '../assets/images/features/feature-codigo.webp';
+import iconEvolucao from '../assets/images/features/feature-evolucao.webp';
+import iconCelular from '../assets/images/features/feature-celular.webp';
 
 interface FeatureItem {
   icon: string;
+  /** Ícone 3D (webp). Quando existe, substitui o emoji do card. */
+  image?: string;
   title: string;
   description: string;
   accent: string;
@@ -14,24 +20,28 @@ interface FeatureItem {
 const FEATURES: FeatureItem[] = [
   {
     icon: '🏐',
+    image: iconAreia,
     title: '240 exercícios feitos para a areia',
     description: 'Nada de treino de quadra adaptado. Cada exercício foi pensado para areia, vento e turma pequena.',
     accent: 'border-[#E2DBC9] hover:border-[#FF9F1C] hover:shadow-md',
   },
   {
     icon: '🔢',
+    image: iconCodigo,
     title: 'O Código da Areia',
     description: 'Nível, fundamento e número de alunos em cada exercício. Você acha o certo em segundos.',
     accent: 'border-[#E2DBC9] hover:border-[#0E4B75] hover:shadow-md',
   },
   {
     icon: '📈',
+    image: iconEvolucao,
     title: 'Do iniciante ao avançado',
     description: 'Para a turma que ainda erra a manchete e para quem já quer treinar side-out e transição.',
     accent: 'border-[#E2DBC9] hover:border-[#05D179] hover:shadow-md',
   },
   {
     icon: '📲',
+    image: iconCelular,
     title: 'Direto no seu celular',
     description: 'Acesso liberado na hora. Você abre na arena e aplica.',
     accent: 'border-[#E2DBC9] hover:border-[#0284C7] hover:shadow-md',
@@ -73,9 +83,21 @@ export const Features: React.FC = () => {
               </span>
             )}
             <div>
-              <div className="text-3xl sm:text-4xl mb-3">{feat.icon}</div>
+              {feat.image ? (
+                <img
+                  src={feat.image}
+                  width={176}
+                  height={176}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="w-20 h-20 sm:w-24 sm:h-24 mb-2 -ml-1 object-contain"
+                />
+              ) : (
+                <div className="text-3xl sm:text-4xl mb-3">{feat.icon}</div>
+              )}
               <h3 className="text-base sm:text-lg font-bold text-[#0E4B75] font-heading flex items-center gap-1.5">
-                <span>{feat.icon} {feat.title}</span>
+                <span>{feat.image ? feat.title : `${feat.icon} ${feat.title}`}</span>
               </h3>
               <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                 {feat.description}
