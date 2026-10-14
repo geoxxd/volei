@@ -1,3 +1,4 @@
+import { LINKS } from '../config/links';
 import React, { useMemo } from 'react';
 
 export const Footer: React.FC = () => {
@@ -8,7 +9,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-3xl mx-auto space-y-2">
         {/* Suporte */}
         <p className="text-slate-800 font-bold">
-          Suporte via WhatsApp: [número]
+          Suporte via WhatsApp: <a href={LINKS.WHATSAPP} target="_blank" rel="noopener noreferrer" className="underline">falar com o suporte</a>
         </p>
 
         {/* Políticas */}
@@ -20,7 +21,7 @@ export const Footer: React.FC = () => {
 
         {/* Copyright */}
         <p className="text-slate-600 font-medium">
-          © {currentYear} [ano] Código da Areia. Todos os direitos reservados.
+          © {currentYear} Código da Areia. Todos os direitos reservados.
         </p>
 
         {/* Aviso Legal */}

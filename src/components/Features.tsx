@@ -33,7 +33,7 @@ const FEATURES: FeatureItem[] = [
   {
     icon: '📲',
     title: 'Direto no seu celular',
-    description: 'Acesso liberado na hora. Você abre na arena e aplica. [SE TIVER: funciona até sem internet.]',
+    description: 'Acesso liberado na hora. Você abre na arena e aplica.',
     accent: 'border-[#E2DBC9] hover:border-[#0284C7] hover:shadow-md',
   },
   {
@@ -43,12 +43,6 @@ const FEATURES: FeatureItem[] = [
     accent: 'border-2 border-[#0284C7]/60 hover:border-[#0284C7] shadow-md ring-1 ring-[#0284C7]/20',
     bg: 'bg-gradient-to-br from-white via-cyan-50/30 to-amber-50/20',
     badge: 'EXCLUSIVO',
-  },
-  {
-    icon: '📲',
-    title: 'Receba no E-mail e no WhatsApp',
-    description: 'Acesso imediato liberado no seu e-mail e enviado diretamente no seu WhatsApp assim que o pagamento for confirmado.',
-    accent: 'border-[#E2DBC9] hover:border-[#25D366] hover:shadow-md',
   },
 ];
 

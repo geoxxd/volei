@@ -77,23 +77,23 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
               {/* Disabled / Strikethrough items */}
               <li className="flex items-start gap-2 text-slate-400 line-through">
                 <span className="text-rose-400 font-bold shrink-0">❌</span>
-                <span>Ataque, bloqueio, defesa e side-out (riscado, cinza)</span>
+                <span>Ataque, bloqueio, defesa e side-out</span>
               </li>
               <li className="flex items-start gap-2 text-slate-400 line-through">
                 <span className="text-rose-400 font-bold shrink-0">❌</span>
-                <span>Nível avançado (riscado, cinza)</span>
+                <span>Nível avançado</span>
               </li>
               <li className="flex items-start gap-2 text-slate-400 line-through">
                 <span className="text-rose-400 font-bold shrink-0">❌</span>
-                <span>Jogos reduzidos e aquecimentos (riscado, cinza)</span>
+                <span>Jogos reduzidos e aquecimentos</span>
               </li>
               <li className="flex items-start gap-2 text-slate-400 line-through">
                 <span className="text-rose-400 font-bold shrink-0">❌</span>
-                <span>Modo Arena: timer, placar, sorteio de duplas e rodízio (riscado, cinza)</span>
+                <span>Modo Arena: timer, placar, sorteio de duplas e rodízio</span>
               </li>
               <li className="flex items-start gap-2 text-slate-400 line-through">
                 <span className="text-rose-400 font-bold shrink-0">❌</span>
-                <span>Bônus exclusivos (riscado, cinza)</span>
+                <span>Bônus exclusivos</span>
               </li>
             </ul>
           </div>

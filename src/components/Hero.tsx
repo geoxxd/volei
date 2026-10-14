@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
 
       {/* Subheadline */}
       <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
-        Tudo num app no seu celular, você abre, escolhe pelo nível e pelo número de alunos e aplica direto na arena.
+        Tudo num app no seu celular, organizado pelo Código da Areia: você abre, escolhe pelo nível e pelo número de alunos e aplica direto na arena.
       </p>
 
       {/* Mockup do celular com o app aberto */}
@@ -50,16 +50,11 @@ export const Hero: React.FC = () => {
         </span>
       </div>
 
-      {/* Social Proof mantendo os colchetes visíveis */}
-      <div className="mt-6 pt-5 border-t border-slate-300/70 max-w-lg mx-auto text-xs text-slate-600 space-y-2">
-        <div className="p-3 rounded-2xl bg-white border border-[#E2DBC9] shadow-sm space-y-1.5">
-          <div className="text-slate-600 font-mono text-[11px]">
-            [OPÇÃO A, só com número real: fotos redondas de 3 professores + &quot;+[X] professores de vôlei de areia já usam&quot;]
-          </div>
-          <div className="text-[#0E4B75] font-bold text-xs sm:text-sm">
-            [OPÇÃO B, até ter número real: &quot;Feito para quem dá aula na praia e na arena&quot;]
-          </div>
-        </div>
+      {/* Prova social (trocar por número real de professores quando houver) */}
+      <div className="mt-6 pt-5 border-t border-slate-300/70 max-w-lg mx-auto">
+        <p className="text-[#0E4B75] font-bold text-sm sm:text-base">
+          🏖️ Feito para quem dá aula na praia e na arena
+        </p>
       </div>
     </section>
   );
