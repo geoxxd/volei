@@ -1,6 +1,4 @@
 import React from 'react';
-import { Check, X, Gift, MessageCircle, Zap, Lock } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
 import { LINKS } from '../config/links';
 import { buildUrlWithParams } from '../utils/utm';
 
@@ -8,162 +6,241 @@ interface PricingProps {
   onOpenUpsell: () => void;
 }
 
-const COMPLETO_ITENS = [
-  'Feitos para a areia, sem adaptação de treino de quadra',
-  'Código da Areia em cada exercício: nível, fundamento e nº de alunos',
-  'Do iniciante ao avançado',
-  '40 de manchete e passe',
-  '35 de toque e levantamento',
-  '30 de saque',
-  '35 de ataque (cortada e largada)',
-  '25 de bloqueio',
-  '35 de defesa',
-  '20 de side-out e transição',
-  '20 jogos reduzidos e aquecimentos',
-  'Modo Arena: timer, placar, sorteio de duplas e rodízio na arena',
-  'Exercícios novos entram direto no app',
-];
-
-const COMPLETO_EXTRAS: { icon: LucideIcon; text: string }[] = [
-  { icon: Gift, text: 'Os 5 bônus exclusivos (R$ 305)' },
-  { icon: MessageCircle, text: 'Suporte direto no WhatsApp' },
-  { icon: Zap, text: 'Acesso vitalício + garantia de 7 dias' },
-];
-
-const BASICO_INCLUI = [
-  '+100 exercícios dos fundamentos de base',
-  '40 de manchete e passe',
-  '35 de toque e levantamento',
-  '30 de saque',
-  'Código da Areia em cada exercício',
-  'Acesso vitalício + garantia de 7 dias',
-];
-
-const BASICO_NAO_INCLUI = [
-  'Ataque, bloqueio, defesa e side-out',
-  'Nível avançado',
-  'Jogos reduzidos e aquecimentos',
-  'Modo Arena: timer, placar, sorteio de duplas e rodízio',
-  'Bônus exclusivos',
-];
-
-const Preco: React.FC<{ de: string; por: string; destaque?: boolean }> = ({ de, por, destaque }) => (
-  <div className="num">
-    <span className="block text-[15px] font-medium text-tinta/50 line-through">De {de}</span>
-    <div className="flex items-baseline gap-2 mt-1">
-      <span className="text-[15px] font-semibold text-tinta-2">{destaque ? 'por apenas' : 'por'}</span>
-      <span
-        className={`titulo leading-none ${destaque ? 'text-[4.25rem] sm:text-[5rem] text-coral' : 'text-5xl text-mar'}`}
-        style={{ fontStretch: '76%' }}
-      >
-        {por}
-      </span>
-      <span className="text-[15px] text-tinta-2">à vista</span>
-    </div>
-  </div>
-);
-
 export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
   const checkout24Url = buildUrlWithParams(LINKS.CHECKOUT_24);
 
   return (
-    <section id="planos" className="px-4 py-14 sm:py-20 scroll-mt-10">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center">
-          <h2 className="text-[2.4rem] leading-[0.98] sm:text-6xl text-mar">Escolha seu acesso</h2>
-          <p className="mt-3 text-[17px] text-tinta-2 font-medium">Pagamento único e acesso imediato</p>
-        </div>
+    <section id="planos" className="py-14 sm:py-20 px-4 max-w-5xl mx-auto scroll-mt-12">
+      <div className="text-center">
+        <h2 className="text-3xl sm:text-5xl font-black text-[#0E4B75] tracking-wide uppercase">
+          ESCOLHA SEU ACESSO
+        </h2>
+        <p className="mt-2 text-sm sm:text-base text-slate-600 font-medium">
+          Pagamento único • Acesso imediato
+        </p>
+      </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-8 md:gap-6 items-start max-w-4xl mx-auto">
-          {/* ================= COMPLETO ================= */}
-          <article className="order-1 md:order-2 relative rounded-2xl bg-papel border-[3px] border-sol shadow-[0_30px_50px_-28px_rgba(229,138,12,0.55)]">
-            <p className="absolute -top-[15px] left-6 rounded-md bg-sol px-3 py-1 text-[14px] font-bold text-[#2A1600]">
-              Melhor oferta
-            </p>
+      {/* Pricing Cards Container */}
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-4xl mx-auto">
+        
+        {/* ================= CARD BÁSICO ================= */}
+        <div className="order-2 md:order-1 rounded-3xl bg-white border border-[#E2DBC9] p-6 sm:p-8 flex flex-col justify-between shadow-sm">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Acesso Essencial
+            </div>
+            <h3 className="text-2xl font-black text-[#0E4B75] font-heading mt-1">
+              BÁSICO
+            </h3>
 
-            <div className="p-6 sm:p-8">
-              <h3 className="text-[1.9rem] sm:text-4xl leading-none text-mar">Código da Areia Completo</h3>
-
-              <div className="mt-5 pb-6 border-b border-areia-2">
-                <Preco de="R$ 97" por="R$ 24" destaque />
-              </div>
-
-              <p className="mt-6 flex items-start gap-3 text-[17px] font-bold text-tinta leading-snug">
-                <Check className="w-5 h-5 mt-0.5 shrink-0 text-sol-2" strokeWidth={3} aria-hidden="true" />
-                240 exercícios de vôlei de areia prontos para aplicar
-              </p>
-              <ul className="mt-3 space-y-2.5 text-[15px] leading-snug text-tinta-2">
-                {COMPLETO_ITENS.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-mar" strokeWidth={3} aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <ul className="mt-5 pt-5 border-t border-areia-2 space-y-2.5 text-[15px] font-bold leading-snug text-mar">
-                {COMPLETO_EXTRAS.map(({ icon: Icon, text }) => (
-                  <li key={text} className="flex items-start gap-3">
-                    <Icon className="w-4 h-4 mt-0.5 shrink-0 text-sol-2" strokeWidth={2.5} aria-hidden="true" />
-                    {text}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8">
-                <a href={checkout24Url} className="btn-compra text-lg">
-                  Quero os 240 exercícios
-                </a>
-                <p className="mt-4 text-center text-[15px] font-bold text-[#0E8A5F]">Economia real de R$ 305</p>
-                <p className="mt-1 flex items-center justify-center gap-1.5 text-[14px] text-tinta-2">
-                  <Lock className="w-3.5 h-3.5" aria-hidden="true" /> Compra 100% segura e 7 dias de garantia
-                </p>
+            {/* Price */}
+            <div className="mt-4 pb-4 border-b border-slate-200">
+              <span className="text-xs text-slate-400 line-through block font-medium">
+                De R$ 47
+              </span>
+              <div className="flex items-baseline gap-1 mt-0.5">
+                <span className="text-xs font-bold text-slate-600">por</span>
+                <span className="text-3xl sm:text-4xl font-black text-[#0E4B75] font-heading">
+                  R$ 10
+                </span>
+                <span className="text-[11px] text-slate-500 font-medium">à vista</span>
               </div>
             </div>
-          </article>
 
-          {/* ================= BÁSICO ================= */}
-          <article className="order-2 md:order-1 rounded-2xl bg-papel/70 border border-areia-3">
-            <div className="p-6 sm:p-8">
-              <h3 className="text-[1.9rem] sm:text-4xl leading-none text-mar">Básico</h3>
+            {/* Features list */}
+            <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-left">
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>+100 exercícios dos fundamentos de base</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>40 de manchete e passe</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>35 de toque e levantamento</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>30 de saque</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>Código da Areia em cada exercício</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>Acesso vitalício + garantia de 7 dias</span>
+              </li>
 
-              <div className="mt-5 pb-6 border-b border-areia-2">
-                <Preco de="R$ 47" por="R$ 10" />
-              </div>
+              {/* Disabled / Strikethrough items */}
+              <li className="flex items-start gap-2 text-slate-400 line-through">
+                <span className="text-rose-400 font-bold shrink-0">❌</span>
+                <span>Ataque, bloqueio, defesa e side-out</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-400 line-through">
+                <span className="text-rose-400 font-bold shrink-0">❌</span>
+                <span>Nível avançado</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-400 line-through">
+                <span className="text-rose-400 font-bold shrink-0">❌</span>
+                <span>Jogos reduzidos e aquecimentos</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-400 line-through">
+                <span className="text-rose-400 font-bold shrink-0">❌</span>
+                <span>Modo Arena: timer, placar, sorteio de duplas e rodízio</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-400 line-through">
+                <span className="text-rose-400 font-bold shrink-0">❌</span>
+                <span>Bônus exclusivos</span>
+              </li>
+            </ul>
+          </div>
 
-              <ul className="mt-6 space-y-2.5 text-[15px] leading-snug text-tinta-2">
-                {BASICO_INCLUI.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-mar" strokeWidth={3} aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-[13px] font-semibold text-tinta/50">Não inclui</p>
-              <ul className="mt-2 space-y-2.5 text-[15px] leading-snug text-tinta/45">
-                {BASICO_NAO_INCLUI.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <X className="w-4 h-4 mt-0.5 shrink-0" strokeWidth={2.5} aria-hidden="true" />
-                    <span className="line-through decoration-tinta/30">{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="mt-8 pt-4 border-t border-slate-200">
+            {/* Botão abre o Pop-up (Seção 11) */}
+            <button
+              onClick={onOpenUpsell}
+              className="w-full py-4 px-6 rounded-2xl bg-[#0E4B75] hover:bg-[#093554] text-white font-bold text-sm sm:text-base tracking-wide transition-all active:scale-[0.98] cursor-pointer shadow-md"
+            >
+              COMEÇAR COM O BÁSICO
+            </button>
 
-              <div className="mt-8">
-                {/* Abre o pop-up que oferece o Completo por R$ 15 */}
-                <button
-                  onClick={onOpenUpsell}
-                  className="w-full min-h-[3.5rem] px-6 rounded-[14px] bg-mar hover:bg-mar-2 text-white font-bold text-[17px] transition-colors cursor-pointer"
-                >
-                  Começar com o Básico
-                </button>
-                <p className="mt-4 text-center text-[15px] font-semibold text-sol-2 leading-snug">
-                  +R$ 14 e leve os 240 exercícios + Modo Arena + 5 bônus grátis
-                </p>
+            {/* Destaque abaixo do card básico */}
+            <div className="mt-3 text-center">
+              <span className="text-xs font-bold text-[#C27803] bg-[#FEF3C7] px-3 py-1 rounded-full border border-[#FDE68A] inline-block">
+                🔥 +R$ 14 e leve os 240 exercícios + Modo Arena + 5 bônus grátis 👇
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= CARD COMPLETO ================= */}
+        <div className="order-1 md:order-2 rounded-3xl bg-white border-3 border-[#FF9F1C] p-6 sm:p-8 flex flex-col justify-between shadow-[0_10px_35px_rgba(255,159,28,0.22)] relative md:-translate-y-2">
+          
+          {/* Selo no topo */}
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span className="bg-gradient-to-r from-[#FF9F1C] via-[#F58F00] to-[#FF9F1C] text-slate-950 text-xs sm:text-sm font-black uppercase px-4 py-1 rounded-full shadow-md border border-[#E07D00]/40 flex items-center gap-1 whitespace-nowrap">
+              ⭐ MELHOR OFERTA
+            </span>
+          </div>
+
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-[#FF9F1C] mt-2">
+              Experiência Total
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-black text-[#0E4B75] font-heading mt-0.5">
+              CÓDIGO DA AREIA COMPLETO
+            </h3>
+
+            {/* Preço */}
+            <div className="mt-4 pb-4 border-b border-amber-200">
+              <span className="text-xs text-slate-400 line-through block font-medium">
+                De R$ 97
+              </span>
+              <div className="flex items-baseline gap-1 mt-0.5">
+                <span className="text-xs font-bold text-[#0E4B75]">por apenas</span>
+                <span className="text-4xl sm:text-5xl font-black text-[#FF4A3F] font-heading">
+                  R$ 24
+                </span>
+                <span className="text-xs text-slate-600 font-medium">à vista</span>
               </div>
             </div>
-          </article>
+
+            {/* Features list */}
+            <ul className="mt-6 space-y-2 text-xs sm:text-sm text-left">
+              <li className="flex items-start gap-2 text-slate-950 font-bold">
+                <span className="text-[#FF9F1C] font-bold shrink-0">✅</span>
+                <span>240 exercícios de vôlei de areia prontos para aplicar</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>Feitos para a areia, sem adaptação de treino de quadra</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>Código da Areia em cada exercício: nível, fundamento e nº de alunos</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>Do iniciante ao avançado</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>40 de manchete e passe</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>35 de toque e levantamento</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>30 de saque</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>35 de ataque (cortada e largada)</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>25 de bloqueio</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>35 de defesa</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>20 de side-out e transição</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>20 jogos reduzidos e aquecimentos</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>Modo Arena: timer, placar, sorteio de duplas e rodízio na arena</span>
+              </li>
+              <li className="flex items-start gap-2 text-slate-800 font-medium">
+                <span className="text-emerald-600 font-bold shrink-0">✅</span>
+                <span>Exercícios novos entram direto no app</span>
+              </li>
+              <li className="flex items-start gap-2 text-[#D97706] font-bold">
+                <span className="shrink-0">🎁</span>
+                <span>Os 5 bônus exclusivos (R$ 305)</span>
+              </li>
+              <li className="flex items-start gap-2 text-emerald-700 font-bold">
+                <span className="shrink-0">💬</span>
+                <span>Suporte direto no WhatsApp</span>
+              </li>
+              <li className="flex items-start gap-2 text-[#0E4B75] font-black">
+                <span className="shrink-0">⚡</span>
+                <span>Acesso vitalício + garantia de 7 dias</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-8 pt-4 border-t border-slate-200">
+            {/* Botão de compra direto para LINK_CHECKOUT_24 */}
+            <a
+              href={checkout24Url}
+              className="block w-full text-center py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-base sm:text-lg tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta uppercase border-b-4 border-[#C92A20]"
+            >
+              QUERO OS 240 EXERCÍCIOS
+            </a>
+
+            {/* Abaixo do botão: Economia real de R$ 305 */}
+            <div className="mt-2.5 text-center text-xs font-black text-emerald-800 bg-emerald-50 py-1 px-3 rounded-full border border-emerald-200">
+              Economia real de R$ 305
+            </div>
+
+            <div className="mt-2 text-center text-xs text-slate-500 font-medium flex items-center justify-center gap-1.5">
+              <span>🔒 Compra 100% segura • 7 dias de garantia</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
   );

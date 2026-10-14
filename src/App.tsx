@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Hero } from './components/Hero';
-import { CodigoExplicado } from './components/CodigoExplicado';
 import { AppPreviewCarousel } from './components/AppPreviewCarousel';
 import { Features } from './components/Features';
 import { Bonuses } from './components/Bonuses';
@@ -17,50 +16,48 @@ export default function App() {
   const [isUpsellModalOpen, setIsUpsellModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-[#F7F4EE] text-[#0F172A] flex flex-col font-sans selection:bg-[#FF9F1C] selection:text-white">
       {/* 1. FAIXA FIXA NO TOPO */}
       <TopBanner />
 
       {/* Espaçador para compensar a faixa fixa */}
       <div className="h-9 sm:h-10" />
 
-      <main>
-        {/* 2. TOPO (HERO) */}
-        <Hero />
+      {/* 2. TOPO (HERO) */}
+      <Hero />
 
-        {/* 3. COMO FUNCIONA O CÓDIGO DA AREIA */}
-        <CodigoExplicado />
+      {/* 3. PRÉVIA DO APP */}
+      <AppPreviewCarousel />
 
-        {/* 4. PRÉVIA DO APP */}
-        <AppPreviewCarousel />
+      {/* 4. TUDO QUE VOCÊ VAI RECEBER */}
+      <Features />
 
-        {/* 5. TUDO QUE VOCÊ VAI RECEBER */}
-        <Features />
+      {/* 5. BÔNUS */}
+      <Bonuses />
 
-        {/* 6. BÔNUS */}
-        <Bonuses />
+      {/* 6. PLANOS (id="planos") */}
+      <Pricing onOpenUpsell={() => setIsUpsellModalOpen(true)} />
 
-        {/* 7. PLANOS (id="planos") */}
-        <Pricing onOpenUpsell={() => setIsUpsellModalOpen(true)} />
+      {/* 7. DEPOIMENTOS (oculto com display:none conforme solicitado) */}
+      <Testimonials />
 
-        {/* 8. DEPOIMENTOS (oculto até ter prints reais) */}
-        <Testimonials />
+      {/* 8. GARANTIA */}
+      <Guarantee />
 
-        {/* 9. GARANTIA */}
-        <Guarantee />
+      {/* 9. PERGUNTAS FREQUENTES */}
+      <Faq />
 
-        {/* 10. PERGUNTAS FREQUENTES */}
-        <Faq />
-
-        {/* 11. FECHAMENTO */}
-        <Closing />
-      </main>
+      {/* 10. FECHAMENTO */}
+      <Closing />
 
       {/* RODAPÉ */}
       <Footer />
 
-      {/* POP-UP (UPSELL DO PLANO BÁSICO) */}
-      <UpsellModal isOpen={isUpsellModalOpen} onClose={() => setIsUpsellModalOpen(false)} />
+      {/* 11. POP-UP (UPSELL DO PLANO BÁSICO) */}
+      <UpsellModal
+        isOpen={isUpsellModalOpen}
+        onClose={() => setIsUpsellModalOpen(false)}
+      />
     </div>
   );
 }

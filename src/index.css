@@ -1,135 +1,57 @@
 @import "tailwindcss";
-@import "@fontsource-variable/archivo/wdth.css";
-
-/*
- * Código da Areia — tokens visuais
- * Areia (fundo), Mar (texto/títulos), Noite (seções escuras, igual ao app),
- * Linha (ciano das linhas da quadra no app), Sol (código/bônus), Coral (só botões de compra).
- */
-@theme {
-  --font-sans: 'Archivo Variable', system-ui, sans-serif;
-
-  --color-areia: #F3EADB;
-  --color-areia-2: #E9DCC4;
-  --color-areia-3: #D9C7A6;
-  --color-papel: #FFFCF6;
-  --color-mar: #0E4B75;
-  --color-mar-2: #0A3A5C;
-  --color-noite: #0A2236;
-  --color-noite-2: #0F2E47;
-  --color-linha: #3EE0E8;
-  --color-sol: #FFA62B;
-  --color-sol-2: #E58A0C;
-  --color-coral: #FF4A3F;
-  --color-coral-2: #D9322A;
-  --color-tinta: #10202E;
-  --color-tinta-2: #3D4E5C;
-}
 
 @layer base {
-  html {
-    -webkit-text-size-adjust: 100%;
+  :root {
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    /* Paleta Praia de Alta Performance */
+    --color-sand-bg: #F7F4EE;
+    --color-ocean-blue: #0E4B75;
+    --color-solar-energy: #FF9F1C;
+    --color-coral-cta: #FF4A3F;
   }
 
   body {
-    font-family: var(--font-sans);
-    background-color: var(--color-areia);
-    color: var(--color-tinta);
+    font-family: var(--font-body);
+    background-color: var(--color-sand-bg);
+    color: #0F172A;
     overflow-x: hidden;
-    font-feature-settings: "kern", "liga";
   }
 
-  h1, h2, h3, .titulo {
-    font-family: var(--font-sans);
-    font-stretch: 84%;
-    font-weight: 800;
-    letter-spacing: -0.012em;
-    text-wrap: balance;
-  }
-
-  :focus-visible {
-    outline: 3px solid var(--color-sol);
-    outline-offset: 3px;
-    border-radius: 6px;
-  }
-}
-
-@layer components {
-  /* Botão de compra: coral, sólido, com "degrau" embaixo */
-  .btn-compra {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: 100%;
-    min-height: 3.75rem;
-    padding: 1rem 1.5rem;
-    border-radius: 14px;
-    background: var(--color-coral);
-    color: #fff;
-    font-weight: 800;
-    font-stretch: 92%;
-    font-size: 1.0625rem;
-    line-height: 1.2;
-    letter-spacing: 0.005em;
-    text-align: center;
-    box-shadow: 0 4px 0 var(--color-coral-2), 0 14px 28px -10px rgb(255 74 63 / 0.55);
-    transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
-    cursor: pointer;
-  }
-  .btn-compra:hover {
-    background: #FF5A4F;
-  }
-  .btn-compra:active {
-    transform: translateY(3px);
-    box-shadow: 0 1px 0 var(--color-coral-2), 0 6px 14px -8px rgb(255 74 63 / 0.5);
-  }
-
-  /* Etiqueta no formato do código do app (ex.: MAN-INI-4) */
-  .tag-codigo {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 6px;
-    background: var(--color-sol);
-    color: #2A1600;
-    font-weight: 700;
-    font-stretch: 100%;
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
     letter-spacing: 0.02em;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .num {
-    font-variant-numeric: tabular-nums lining-nums;
   }
 }
 
-/* Linhas de quadra desenhadas atrás do celular no topo */
-.quadra-fundo {
-  background-image:
-    linear-gradient(var(--color-papel), var(--color-papel)),
-    linear-gradient(var(--color-papel), var(--color-papel)),
-    linear-gradient(var(--color-papel), var(--color-papel));
-  background-size: 100% 3px, 3px 100%, 3px 100%;
-  background-position: 0 50%, 0 0, 100% 0;
-  background-repeat: no-repeat;
-}
-
-@keyframes aparecer {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes subir {
-  from { opacity: 0; transform: translateY(16px) scale(0.98); }
-  to { opacity: 1; transform: none; }
-}
-.anim-fundo { animation: aparecer 160ms ease-out both; }
-.anim-caixa { animation: subir 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+/* Glowing pulse animation for the coral fluorescent CTA */
+@keyframes pulseCoralCta {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 74, 63, 0.45), 0 4px 14px 0 rgba(14, 75, 117, 0.25);
   }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px 6px rgba(255, 74, 63, 0.38), 0 8px 25px 0 rgba(14, 75, 117, 0.3);
+  }
+}
+
+.animate-pulse-cta {
+  animation: pulseCoralCta 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F4EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }

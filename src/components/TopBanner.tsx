@@ -12,13 +12,12 @@ export const TopBanner: React.FC = () => {
 
   return (
     <aside
-      aria-label="Aviso de lançamento"
-      className="fixed top-0 left-0 right-0 z-40 h-9 sm:h-10 flex items-center justify-center bg-noite text-white px-3 text-center text-[13px] sm:text-sm font-semibold leading-tight"
+      aria-label="Aviso de Lançamento"
+      className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#FF9F1C] via-[#F58F00] to-[#FF9F1C] text-slate-950 py-2 px-3 text-center shadow-md font-bold text-xs sm:text-sm tracking-wide border-b border-[#E07D00]/30"
     >
-      <p>
-        Condição de lançamento válida só até hoje{' '}
-        <span className="text-sol num">({todayFormatted})</span>
-      </p>
+      <div className="max-w-4xl mx-auto flex items-center justify-center gap-1.5 leading-snug font-extrabold">
+        <span>🔥 CONDIÇÃO DE LANÇAMENTO VÁLIDA SÓ ATÉ HOJE ({todayFormatted})</span>
+      </div>
     </aside>
   );
 };

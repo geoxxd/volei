@@ -15,8 +15,8 @@ export const Testimonials: React.FC = () => {
       className="hidden py-12 sm:py-16 px-4 max-w-4xl mx-auto text-center"
       aria-hidden="true"
     >
-      <h2 className="text-[2rem] leading-[1] sm:text-5xl text-mar">
-        O que os professores estão dizendo
+      <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
+        O QUE OS PROFESSORES ESTÃO DIZENDO
       </h2>
       <p className="mt-2 text-sm text-slate-600 font-medium">
         [Espaço para prints reais de depoimentos. Enquanto não houver, deixe esta seção oculta (display:none) para eu ativar depois.]
@@ -27,7 +27,7 @@ export const Testimonials: React.FC = () => {
         {[1, 2, 3].map((item) => (
           <div 
             key={item} 
-            className="p-6 rounded-2xl bg-papel border border-areia-3 text-slate-500 font-mono text-xs flex flex-col items-center justify-center min-h-[160px] shadow-2xs"
+            className="p-6 rounded-2xl bg-white border border-[#E2DBC9] text-slate-500 font-mono text-xs flex flex-col items-center justify-center min-h-[160px] shadow-2xs"
           >
             <span className="font-bold text-slate-700">[Print de Depoimento {item}]</span>
             <span className="text-[10px] text-slate-500 mt-1">Cole a imagem do print do aluno/professor</span>
