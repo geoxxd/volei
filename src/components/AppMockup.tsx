@@ -1,5 +1,5 @@
 import React from 'react';
-import mockupImage from '../assets/images/mockup_app_manchete.jpg';
+import mockupImage from '../assets/images/mockup_app_manchete.webp';
 
 interface AppMockupProps {
   activeScreen?: 'exercise' | 'filters' | 'categories' | 'timer';
@@ -13,20 +13,19 @@ export const AppMockup: React.FC<AppMockupProps> = ({
   // Quando for a tela principal de exercício (ou o print do app solicitado pelo usuário)
   if (activeScreen === 'exercise') {
     return (
-      <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[315px]">
+      <div className="relative mx-auto w-full max-w-[243px] sm:max-w-[274px]">
         {/* Outer ambient glow */}
         <div className="absolute -inset-3 bg-gradient-to-tr from-[#FF9F1C]/30 via-[#0E4B75]/25 to-[#FF4A3F]/20 rounded-[48px] blur-xl opacity-80 pointer-events-none"></div>
 
-        {/* Phone frame com a imagem enviada */}
-        <div className="relative rounded-[40px] sm:rounded-[44px] overflow-hidden shadow-2xl border-[5px] border-slate-900 bg-black">
-          <img
-            src={mockupImage}
-            alt="App Código da Areia - Exercício MAN-INI-4 Manchete Cruzada com Deslocamento em V"
-            className="w-full h-auto object-cover block"
-            loading="eager"
-            referrerPolicy="no-referrer"
-          />
-        </div>
+        {/* Celular da imagem enviada, recortado do fundo branco (sem moldura extra) */}
+        <img
+          src={mockupImage}
+          width={667}
+          height={1322}
+          alt="App Código da Areia - Exercício MAN-INI-4 Manchete Cruzada com Deslocamento em V"
+          className="relative w-full h-auto block drop-shadow-[0_20px_25px_rgba(15,23,42,0.35)]"
+          loading="eager"
+        />
 
 
         {caption && (
