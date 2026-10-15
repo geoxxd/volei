@@ -1,5 +1,4 @@
 import React from 'react';
-import { AppMockup } from './AppMockup';
 import { scrollToPlanos } from '../utils/utm';
 
 export const Hero: React.FC = () => {
@@ -23,9 +22,24 @@ export const Hero: React.FC = () => {
         App com todos os fundamentos da dupla de praia, diagramas de quadra, variações por nível e filtro por categoria, acesso direto pelo celular.
       </p>
 
-      {/* Mockup do celular com o app aberto */}
-      <div className="my-8 sm:my-10">
-        <AppMockup activeScreen="exercise" />
+      {/* Vídeo demonstrativo do aplicativo (Imgur a/iAOPy8W) */}
+      <div className="my-8 sm:my-10 max-w-[280px] sm:max-w-[320px] mx-auto">
+        <div className="relative rounded-[36px] p-2 bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl border-4 border-slate-700/80 overflow-hidden">
+          <div className="absolute -inset-4 bg-gradient-to-tr from-[#FF9F1C]/25 via-[#0E4B75]/20 to-[#FF4A3F]/20 rounded-[48px] blur-xl opacity-70 pointer-events-none -z-10" />
+          
+          <video
+            src="https://i.imgur.com/4r1NGGW.mp4"
+            poster="https://i.imgur.com/4r1NGGW.jpg"
+            controls
+            playsInline
+            autoPlay
+            muted
+            loop
+            className="w-full h-auto rounded-[28px] object-cover block shadow-inner"
+          >
+            Seu navegador não suporta a tag de vídeo.
+          </video>
+        </div>
       </div>
 
 
