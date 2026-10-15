@@ -1,17 +1,6 @@
 import React from 'react';
+import { AppMockup } from './AppMockup';
 import { scrollToPlanos } from '../utils/utm';
-
-/**
- * IMAGEM DO TOPO (hero)
- * Espaço reservado para a próxima imagem. Para colocar uma:
- * 1) salve o arquivo (webp) em src/assets/images/
- * 2) importe aqui em cima (import heroImage from '../assets/images/arquivo.webp')
- * 3) troque `null` por heroImage e informe a largura e a altura reais em HERO_IMAGE_SIZE.
- * Enquanto for `null`, nada é exibido.
- */
-const HERO_IMAGE: string | null = null;
-const HERO_IMAGE_ALT = '';
-const HERO_IMAGE_SIZE = { w: 800, h: 800 };
 
 export const Hero: React.FC = () => {
 
@@ -34,21 +23,10 @@ export const Hero: React.FC = () => {
         Tudo num app no seu celular, você abre, escolhe pelo nível e pelo número de alunos e aplica direto na arena.
       </p>
 
-      {/* Imagem do topo (vazia por enquanto) */}
-      {HERO_IMAGE ? (
-        <div className="my-8 sm:my-10">
-          <img
-            src={HERO_IMAGE}
-            width={HERO_IMAGE_SIZE.w}
-            height={HERO_IMAGE_SIZE.h}
-            alt={HERO_IMAGE_ALT}
-            className="mx-auto w-full max-w-[274px] h-auto block"
-            loading="eager"
-          />
-        </div>
-      ) : (
-        <div className="h-8 sm:h-10" aria-hidden="true" />
-      )}
+      {/* Mockup do celular com o app aberto */}
+      <div className="my-8 sm:my-10">
+        <AppMockup activeScreen="exercise" />
+      </div>
 
 
       {/* Primary CTA Button (Coral Fluorescente de Alta Conversão) */}
