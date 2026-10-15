@@ -60,7 +60,7 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({ isOpen, onClose }) => 
 
         {/* Texto */}
         <p className="mt-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed text-balance font-medium">
-          Em vez de 100 exercícios em PDF, você leva o app com os 240, do iniciante ao avançado, com o Modo Arena e os 5 bônus.
+          Em vez de 100 exercícios em PDF, você leva o app com os 240, do iniciante ao avançado, e os 5 bônus.
         </p>
 
         {/* Preço */}
@@ -89,10 +89,6 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({ isOpen, onClose }) => 
           <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
             <span className="text-emerald-600 font-bold shrink-0">✅</span>
             <span>Nível avançado + jogos e aquecimentos</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
-            <span className="text-emerald-600 font-bold shrink-0">✅</span>
-            <span>Modo Arena completo</span>
           </div>
           <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
             <span className="text-emerald-600 font-bold shrink-0">✅</span>

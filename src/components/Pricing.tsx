@@ -84,10 +84,6 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
               </li>
               <li className="flex items-start gap-2 text-slate-400 line-through">
                 <span className="text-rose-400 font-bold shrink-0">❌</span>
-                <span>Modo Arena: timer, placar, sorteio de duplas e rodízio</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-400 line-through">
-                <span className="text-rose-400 font-bold shrink-0">❌</span>
                 <span>Bônus exclusivos</span>
               </li>
             </ul>
@@ -105,7 +101,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
             {/* Destaque abaixo do card básico */}
             <div className="mt-3 text-center">
               <span className="text-xs font-bold text-[#C27803] bg-[#FEF3C7] px-3 py-1 rounded-full border border-[#FDE68A] inline-block">
-                🔥 +R$ 14 e leve o APP com os 240 exercícios + Modo Arena + 5 bônus 👇
+                🔥 +R$ 14 e leve o APP com os 240 exercícios + 5 bônus 👇
               </span>
             </div>
           </div>
@@ -199,10 +195,6 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
               <li className="flex items-start gap-2 text-slate-800 font-medium">
                 <span className="text-emerald-600 font-bold shrink-0">✅</span>
                 <span>20 jogos reduzidos e aquecimentos</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>Modo Arena: timer, placar, sorteio de duplas e rodízio na arena</span>
               </li>
               <li className="flex items-start gap-2 text-slate-800 font-medium">
                 <span className="text-emerald-600 font-bold shrink-0">✅</span>

@@ -6,7 +6,7 @@ interface SlideItem {
   id: number;
   title: string;
   tag: string;
-  screenType: 'categories' | 'filters' | 'exercise' | 'timer';
+  screenType: 'categories' | 'filters' | 'exercise';
   caption: string;
 }
 
@@ -31,13 +31,6 @@ const SLIDES: SlideItem[] = [
     tag: '[print de um exercício com o código, ex.: MAN-INI-4 = Manchete · Iniciante · 4 alunos, e o desenho da quadra]',
     screenType: 'exercise',
     caption: '3. "Abra o exercício e aplique" – [print de um exercício com o código, ex.: MAN-INI-4 = Manchete · Iniciante · 4 alunos, e o desenho da quadra]',
-  },
-  {
-    id: 4,
-    title: '"Modo Arena: a aula rodando na sua mão"',
-    tag: '[print da tela do Modo Arena com timer e placar]',
-    screenType: 'timer',
-    caption: '4. "Modo Arena: a aula rodando na sua mão" – [print da tela do Modo Arena com timer e placar]',
   },
 ];
 

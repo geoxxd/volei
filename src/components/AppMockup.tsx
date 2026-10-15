@@ -2,7 +2,7 @@ import React from 'react';
 import mockupImage from '../assets/images/mockup_app_manchete.webp';
 
 interface AppMockupProps {
-  activeScreen?: 'exercise' | 'filters' | 'categories' | 'timer';
+  activeScreen?: 'exercise' | 'filters' | 'categories';
   caption?: string;
 }
 
@@ -37,7 +37,7 @@ export const AppMockup: React.FC<AppMockupProps> = ({
     );
   }
 
-  // Telas interativas para o carrossel (filtros, categorias, timer)
+  // Telas interativas para o carrossel (filtros e categorias)
   return (
     <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[315px]">
       {/* Outer ambient glow */}
@@ -136,50 +136,6 @@ export const AppMockup: React.FC<AppMockupProps> = ({
                   </span>
                 </div>
               ))}
-            </div>
-          )}
-
-          {activeScreen === 'timer' && (
-            <div className="space-y-2.5 text-center py-1">
-              <div className="flex items-center justify-between px-1">
-                <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-500/40">
-                  MODO AREIA
-                </span>
-                <span className="text-[9px] text-cyan-300 font-semibold">
-                  Rodízio Ativo • 4 Duplas
-                </span>
-              </div>
-
-              {/* Timer */}
-              <div className="bg-slate-950 p-3 rounded-xl border border-cyan-500/40 shadow-inner">
-                <div className="text-2xl sm:text-3xl font-mono font-black text-cyan-400 tracking-wider">
-                  03:45
-                </div>
-                <div className="text-[9px] text-slate-400 mt-0.5 uppercase">Bloco 2 de 4 · Rodízio em 15s</div>
-              </div>
-
-              {/* Placar */}
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-                  <span className="text-[9px] text-amber-300 font-bold uppercase block">Dupla 1 (Lucas & Ana)</span>
-                  <div className="text-xl font-black text-[#FF9F1C] mt-0.5">18</div>
-                </div>
-                <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
-                  <span className="text-[9px] text-cyan-300 font-bold uppercase block">Dupla 2 (Beto & Carla)</span>
-                  <div className="text-xl font-black text-cyan-400 mt-0.5">16</div>
-                </div>
-              </div>
-
-              {/* Sorteio de duplas & Rodízio */}
-              <div className="bg-slate-900/80 p-2 rounded-lg border border-slate-800/80 text-left text-[10px] space-y-1">
-                <div className="text-slate-300 font-semibold flex items-center justify-between">
-                  <span>🎲 Próxima quadra (Sorteio):</span>
-                  <span className="text-emerald-400 font-bold">Rodada 3</span>
-                </div>
-                <div className="text-slate-400 text-[9px]">
-                  • Quadra 1: Lucas & Carla vs Beto & Ana
-                </div>
-              </div>
             </div>
           )}
         </div>
