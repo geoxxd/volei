@@ -58,14 +58,13 @@ const BONUSES: BonusItem[] = [
 
 export const Bonuses: React.FC = () => {
   return (
-    <section className="relative py-14 sm:py-20 px-4 bg-[#08090D] overflow-hidden border-t border-slate-800/80">
+    <section className="relative py-14 sm:py-20 px-4 bg-[#0B2A44] overflow-hidden">
       {/* Brilho de fundo */}
-      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[620px] h-[320px] bg-[#8B5CF6]/10 blur-3xl rounded-full pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293d18_1px,transparent_1px),linear-gradient(to_bottom,#1f293d18_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_35%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[620px] h-[320px] bg-[#FF9F1C]/20 blur-3xl rounded-full pointer-events-none" />
 
       <div className="relative max-w-2xl mx-auto text-center">
         {/* Selo */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1F1530] border border-[#7C3AED]/40 text-[#D8B4FE] text-xs font-black uppercase tracking-wider mb-5 shadow-sm">
+        <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-[#FF9F1C] text-[#0B2A44] text-xs font-black uppercase tracking-wider mb-3 shadow-md">
           ⭐ BÔNUS EXCLUSIVOS
         </div>
 
@@ -119,23 +118,23 @@ export const Bonuses: React.FC = () => {
         </div>
 
         {/* Total em formato de "comprovante" */}
-        <div className="mt-8 rounded-2xl bg-[#131929] border border-slate-800 text-left shadow-xl overflow-hidden">
+        <div className="mt-8 rounded-2xl bg-white text-left shadow-xl overflow-hidden">
           <div className="px-5 pt-5 pb-3 space-y-1.5 text-sm">
             {BONUSES.map((bonus) => (
-              <div key={bonus.numberString} className="flex justify-between gap-3 text-slate-400">
+              <div key={bonus.numberString} className="flex justify-between gap-3 text-slate-600">
                 <span className="truncate">Bônus {bonus.numberString} · {bonus.shortName}</span>
                 <span className="shrink-0 font-semibold">{bonus.originalPrice}</span>
               </div>
             ))}
           </div>
-          <div className="mx-5 border-t-2 border-dashed border-slate-700" />
+          <div className="mx-5 border-t-2 border-dashed border-slate-200" />
           <div className="px-5 py-4 flex items-center justify-between">
-            <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-slate-300">
+            <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#0E4B75]">
               Valor total dos bônus
             </span>
             <span className="text-right">
-              <span className="block text-sm font-bold text-slate-500 line-through">R$ 305</span>
-              <span className="block text-2xl sm:text-3xl font-black text-emerald-400 leading-none">R$ 0,00</span>
+              <span className="block text-sm font-bold text-slate-400 line-through">R$ 305</span>
+              <span className="block text-2xl sm:text-3xl font-black text-emerald-600 leading-none">R$ 0,00</span>
             </span>
           </div>
         </div>

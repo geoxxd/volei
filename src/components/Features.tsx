@@ -24,24 +24,22 @@ const FEATURES: FeatureItem[] = [
     image: iconAreia,
     title: '240 exercícios feitos para a areia',
     description: 'Nada de treino de quadra adaptado. Cada exercício foi pensado para areia, vento e turma pequena.',
-    accent: 'border-slate-800/90 border-t-4 border-t-[#FF9F1C] hover:border-[#FF9F1C]/40 hover:bg-[#162035]',
-  bg: 'bg-[#131929]',
+    accent: 'border-[#E2DBC9] hover:border-[#FF9F1C] hover:shadow-md',
   },
   {
     icon: '🔢',
     image: iconCodigo,
     title: 'O Código da Areia',
     description: 'Nível, fundamento e número de alunos em cada exercício. Você acha o certo em segundos.',
-    accent: 'border-slate-800/90 border-t-4 border-t-[#0284C7] hover:border-[#0284C7]/40 hover:bg-[#162035]',
-    bg: 'bg-[#131929]',
+    accent: 'border-[#E2DBC9] hover:border-[#0E4B75] hover:shadow-md',
   },
   {
     icon: '📋',
     image: iconAula,
     title: 'Aula pronta para dar',
     description: 'Escolha o nível e o tamanho da turma e veja na hora os exercícios certos para a aula do dia. Você chega na arena sabendo o que vai aplicar.',
-    accent: 'border-slate-800/90 border-t-4 border-t-[#FF4A3F] hover:border-[#FF4A3F]/40 hover:bg-[#162035]',
-    bg: 'bg-[#131929]',
+    accent: 'border-2 border-[#0284C7]/60 hover:border-[#0284C7] shadow-md ring-1 ring-[#0284C7]/20',
+    bg: 'bg-gradient-to-br from-white via-cyan-50/30 to-amber-50/20',
     badge: 'NOVIDADE',
   },
   {
@@ -49,29 +47,27 @@ const FEATURES: FeatureItem[] = [
     image: iconEvolucao,
     title: 'Do iniciante ao avançado',
     description: 'Para a turma que ainda erra a manchete e para quem já quer treinar side-out e transição.',
-    accent: 'border-slate-800/90 border-t-4 border-t-[#FF9F1C] hover:border-[#FF9F1C]/40 hover:bg-[#162035]',
-    bg: 'bg-[#131929]',
+    accent: 'border-[#E2DBC9] hover:border-[#05D179] hover:shadow-md',
   },
   {
     icon: '📲',
     image: iconCelular,
     title: 'Direto no seu celular',
     description: 'Acesso liberado na hora. Você abre na arena e aplica.',
-    accent: 'border-slate-800/90 border-t-4 border-t-[#0284C7] hover:border-[#0284C7]/40 hover:bg-[#162035]',
-    bg: 'bg-[#131929]',
+    accent: 'border-[#E2DBC9] hover:border-[#0284C7] hover:shadow-md',
   },
 ];
 
 export const Features: React.FC = () => {
   return (
-    <section className="py-12 sm:py-16 px-4 max-w-4xl mx-auto relative overflow-hidden border-t border-slate-800/80">
+    <section className="py-12 sm:py-16 px-4 max-w-4xl mx-auto">
       <div className="text-center">
         {/* Title */}
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-wide uppercase">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
           TUDO QUE VOCÊ VAI RECEBER
         </h2>
         {/* Subtitle */}
-        <p className="mt-2.5 text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-medium">
+        <p className="mt-2.5 text-sm sm:text-base text-slate-700 max-w-xl mx-auto leading-relaxed font-medium">
           240 exercícios prontos para você parar de improvisar e chegar na arena com a aula na mão.
         </p>
       </div>
@@ -81,10 +77,10 @@ export const Features: React.FC = () => {
         {FEATURES.map((feat) => (
           <div
             key={feat.title}
-            className={`group p-6 rounded-2xl ${feat.bg || 'bg-[#131929]'} border ${feat.accent} transition-all duration-300 shadow-lg relative overflow-hidden flex flex-col justify-between`}
+            className={`group p-6 rounded-2xl ${feat.bg || 'bg-white'} border ${feat.accent} transition-all duration-200 shadow-sm relative overflow-hidden flex flex-col justify-between`}
           >
             {feat.badge && (
-              <span className="absolute top-3.5 right-3.5 text-[10px] font-black uppercase tracking-wider bg-[#FF4A3F] text-white px-2 py-0.5 rounded-full shadow-sm">
+              <span className="absolute top-3.5 right-3.5 text-[10px] font-black uppercase tracking-wider bg-[#0284C7] text-white px-2 py-0.5 rounded-full shadow-2xs">
                 {feat.badge}
               </span>
             )}
@@ -102,10 +98,10 @@ export const Features: React.FC = () => {
               ) : (
                 <div className="text-3xl sm:text-4xl mb-3">{feat.icon}</div>
               )}
-              <h3 className="text-base sm:text-lg font-bold text-white font-heading flex items-center gap-1.5">
+              <h3 className="text-base sm:text-lg font-bold text-[#0E4B75] font-heading flex items-center gap-1.5">
                 <span>{feat.image ? feat.title : `${feat.icon} ${feat.title}`}</span>
               </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                 {feat.description}
               </p>
             </div>

@@ -6,25 +6,20 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative pt-12 pb-12 sm:pt-16 sm:pb-16 px-4 max-w-4xl mx-auto text-center overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_80%,transparent_100%)] opacity-40 pointer-events-none" />
-
-      {/* Glow de fundo */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[360px] bg-[#FF9F1C]/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute top-24 right-1/4 translate-x-1/2 w-[380px] h-[380px] bg-[#0284C7]/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      {/* Background subtle coastal atmosphere glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[360px] bg-gradient-to-b from-[#FF9F1C]/10 via-[#0E4B75]/10 to-transparent blur-3xl pointer-events-none -z-10" />
 
       {/* Main Headline */}
-      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] max-w-3xl mx-auto text-balance tracking-tight">
+      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0E4B75] leading-[1.15] max-w-3xl mx-auto text-balance">
         <span className="text-[#FF9F1C] font-black">+240</span> Exercícios de Vôlei de Areia{' '}
-        <span className="text-[#FF9F1C] relative inline-block">
+        <span className="underline decoration-[#0284C7] decoration-[4px] underline-offset-6 text-[#0E4B75]">
           Prontos
-          <span className="absolute bottom-1 left-0 w-full h-[5px] bg-[#FF9F1C]/30 rounded-full" />
         </span>{' '}
         para a sua próxima aula
       </h1>
 
       {/* Subheadline */}
-      <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
+      <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
         App com todos os fundamentos da dupla de praia, diagramas de quadra, variações por nível e filtro por categoria, acesso direto pelo celular.
       </p>
 
@@ -33,7 +28,8 @@ export const Hero: React.FC = () => {
         <AppMockup activeScreen="exercise" />
       </div>
 
-      {/* Primary CTA Button */}
+
+      {/* Primary CTA Button (Coral Fluorescente de Alta Conversão) */}
       <div className="w-full max-w-md mx-auto">
         <button
           onClick={scrollToPlanos}
@@ -43,20 +39,20 @@ export const Hero: React.FC = () => {
         </button>
       </div>
 
-      {/* Badges / Selos */}
-      <div className="mt-4 flex items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-slate-300">
-        <span className="flex items-center gap-1.5 text-[#FF9F1C]">
+      {/* Badges / Selos lado a lado */}
+      <div className="mt-4 flex items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-slate-700">
+        <span className="flex items-center gap-1.5 text-[#0E4B75]">
           ⚡ ACESSO IMEDIATO
         </span>
-        <span className="text-slate-600">|</span>
-        <span className="flex items-center gap-1.5 text-[#FF9F1C]">
+        <span className="text-slate-300">|</span>
+        <span className="flex items-center gap-1.5 text-[#D97706]">
           🎁 BÔNUS GRÁTIS
         </span>
       </div>
 
-      {/* Prova social */}
-      <div className="mt-6 pt-5 border-t border-slate-700/70 max-w-lg mx-auto">
-        <p className="text-slate-300 font-bold text-sm sm:text-base">
+      {/* Prova social (trocar por número real de professores quando houver) */}
+      <div className="mt-6 pt-5 border-t border-slate-300/70 max-w-lg mx-auto">
+        <p className="text-[#0E4B75] font-bold text-sm sm:text-base">
           🏖️ Feito para quem dá aula na praia e na arena
         </p>
       </div>

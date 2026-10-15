@@ -3,16 +3,15 @@ import { scrollToPlanos } from '../utils/utm';
 
 export const Closing: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 px-4 bg-[#08090D] text-center border-t border-slate-800/80 relative overflow-hidden">
-      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#FF9F1C]/8 blur-3xl rounded-full pointer-events-none" />
-      <div className="max-w-3xl mx-auto space-y-4 relative">
+    <section className="py-14 sm:py-20 px-4 bg-[#EFE9DC]/60 text-center border-t border-[#E2DBC9]">
+      <div className="max-w-3xl mx-auto space-y-4">
         {/* Título */}
-        <h2 className="text-3xl sm:text-5xl font-black text-white tracking-wide uppercase font-heading text-balance">
+        <h2 className="text-3xl sm:text-5xl font-black text-[#0E4B75] tracking-wide uppercase font-heading text-balance">
           SUA PRÓXIMA AULA JÁ PODE ESTAR PRONTA
         </h2>
 
         {/* Texto */}
-        <p className="text-base sm:text-xl text-slate-300 font-semibold">
+        <p className="text-base sm:text-xl text-slate-700 font-semibold">
           240 exercícios de vôlei de areia no seu celular, a partir de R$ 10.
         </p>
 
@@ -27,7 +26,7 @@ export const Closing: React.FC = () => {
         </div>
 
         {/* Abaixo */}
-        <div className="pt-2 text-xs sm:text-sm font-bold text-slate-400">
+        <div className="pt-2 text-xs sm:text-sm font-bold text-slate-600">
           Acesso imediato • 7 dias de garantia
         </div>
       </div>
