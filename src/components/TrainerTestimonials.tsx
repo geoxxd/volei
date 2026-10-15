@@ -37,7 +37,7 @@ const DEPOIMENTOS: Depoimento[] = [
     src: depoimento3,
     alt: 'Conversa de WhatsApp em que um treinador de vôlei de praia agradece pelo material organizado e fácil de acessar, inclusive na quadra de areia',
     w: 800,
-    h: 1419,
+    h: 1329,
   },
   { src: null, alt: '' },
   { src: null, alt: '' },
