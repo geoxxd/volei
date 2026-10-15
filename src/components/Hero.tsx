@@ -1,65 +1,48 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import { scrollToPlanos } from '../utils/utm';
 
 export const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
+  // Inicia preview mudo no carregamento da página
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-
-    // Tenta iniciar a reprodução com o áudio ativado
-    video.muted = false;
-    video.volume = 1;
-
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          // O navegador permitiu autoplay com áudio
-          setIsMuted(false);
-        })
-        .catch(() => {
-          // Os navegadores bloqueiam autoplay com som sem interação prévia do usuário.
-          // Inicia em modo mudo para não travar o vídeo e ativa no primeiro toque/clique.
-          video.muted = true;
-          video.play().catch(() => {});
-          setIsMuted(true);
-        });
-    }
-
-    // Ativa o áudio imediatamente no primeiro clique ou toque do usuário na página
-    const handleFirstInteraction = () => {
-      if (video && video.muted) {
-        video.muted = false;
-        video.volume = 1;
-        video.play().catch(() => {});
-        setIsMuted(false);
-      }
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-    };
-
-    window.addEventListener('click', handleFirstInteraction, { passive: true });
-    window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
-
-    return () => {
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-    };
+    video.muted = true;
+    video.play().catch(() => {});
   }, []);
 
-  const toggleSound = () => {
-    if (!videoRef.current) return;
-    const newMuted = !videoRef.current.muted;
-    videoRef.current.muted = newMuted;
-    if (!newMuted) {
-      videoRef.current.volume = 1;
-      videoRef.current.play().catch(() => {});
+  // Quando o lead clica na tela: volta ao começo (0s), desmuta e toca com áudio
+  const handleStartWithSound = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
     }
-    setIsMuted(newMuted);
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.currentTime = 0; // Volta ao começo
+    video.muted = false;   // Ativa o áudio
+    video.volume = 1;
+    video.loop = false;
+    video.play().catch(() => {});
+    setIsPlayingAudio(true);
+  };
+
+  const handleVideoClick = () => {
+    if (!isPlayingAudio) {
+      handleStartWithSound();
+      return;
+    }
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
   };
 
   return (
@@ -90,37 +73,31 @@ export const Hero: React.FC = () => {
             ref={videoRef}
             src="https://i.imgur.com/4r1NGGW.mp4"
             poster="https://i.imgur.com/4r1NGGW.jpg"
-            controls
+            controls={isPlayingAudio}
             playsInline
             autoPlay
-            loop
+            muted={!isPlayingAudio}
+            loop={!isPlayingAudio}
             className="w-full h-auto rounded-[28px] object-cover block shadow-inner cursor-pointer"
-            onClick={toggleSound}
+            onClick={handleVideoClick}
           >
             Seu navegador não suporta a tag de vídeo.
           </video>
 
-          {/* Botão de destaque para ativar o som se o navegador bloqueou o áudio no autoplay */}
-          {isMuted && (
-            <button
-              type="button"
-              onClick={toggleSound}
-              className="absolute top-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#FF4A3F] hover:bg-[#FF3B2F] text-white text-[11px] sm:text-xs font-black uppercase px-3.5 py-2 rounded-full shadow-xl border border-white/30 transition-transform active:scale-95 animate-bounce cursor-pointer whitespace-nowrap"
+          {/* Overlay 'Toque para ouvir' (estilo VSL idêntico ao modelo) */}
+          {!isPlayingAudio && (
+            <div
+              onClick={handleStartWithSound}
+              className="absolute inset-0 z-30 flex items-center justify-center bg-black/25 hover:bg-black/35 transition-all cursor-pointer p-4"
             >
-              <VolumeX className="w-3.5 h-3.5 shrink-0" />
-              <span>Toque para ativar o som</span>
-            </button>
-          )}
-
-          {!isMuted && (
-            <button
-              type="button"
-              onClick={toggleSound}
-              aria-label="Silenciar áudio"
-              className="absolute top-5 right-5 z-20 p-2 rounded-full bg-black/60 hover:bg-black/80 text-white shadow-md border border-white/20 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
-            >
-              <Volume2 className="w-4 h-4" />
-            </button>
+              <div className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#18181B]/90 hover:bg-black text-white shadow-2xl border border-white/20 transition-transform active:scale-95 animate-pulse select-none">
+                <Volume2 className="w-6 h-6 text-white shrink-0" />
+                <div className="text-left font-black tracking-wide leading-tight text-sm sm:text-base">
+                  <div>Toque</div>
+                  <div>para ouvir</div>
+                </div>
+              </div>
+            </div>
           )}
         </div>
       </div>
