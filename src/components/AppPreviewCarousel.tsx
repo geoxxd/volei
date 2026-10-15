@@ -49,7 +49,7 @@ export const AppPreviewCarousel: React.FC = () => {
     <section className="py-12 sm:py-16 px-4 bg-[#EFE9DC]/70 border-y border-[#E2DBC9]">
       <div className="max-w-4xl mx-auto text-center">
         {/* Title */}
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
+        <h2 className="text-3xl sm:text-4xl font-black text-[#0E4B75] tracking-tight uppercase">
           VEJA O APP POR DENTRO
         </h2>
         

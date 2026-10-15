@@ -6,7 +6,7 @@ export const Closing: React.FC = () => {
     <section className="py-14 sm:py-20 px-4 bg-[#EFE9DC]/60 text-center border-t border-[#E2DBC9]">
       <div className="max-w-3xl mx-auto space-y-4">
         {/* Título */}
-        <h2 className="text-3xl sm:text-5xl font-black text-[#0E4B75] tracking-wide uppercase font-heading text-balance">
+        <h2 className="text-3xl sm:text-5xl font-black text-[#0E4B75] tracking-tight uppercase font-heading text-balance">
           SUA PRÓXIMA AULA JÁ PODE ESTAR PRONTA
         </h2>
 
@@ -19,7 +19,7 @@ export const Closing: React.FC = () => {
         <div className="pt-4 max-w-md mx-auto">
           <button
             onClick={scrollToPlanos}
-            className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-base sm:text-lg tracking-wide shadow-2xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
+            className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-extrabold text-base sm:text-lg tracking-wide shadow-2xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
           >
             QUERO MINHA AULA PRONTA AGORA
           </button>

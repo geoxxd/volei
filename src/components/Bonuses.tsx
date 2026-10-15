@@ -69,7 +69,7 @@ export const Bonuses: React.FC = () => {
         </div>
 
         {/* Título */}
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-wide uppercase leading-tight">
+        <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight">
           LEVE HOJE <span className="text-[#FFC145]">+ 5 BÔNUS</span> GRÁTIS
         </h2>
         <p className="mt-3 text-sm sm:text-base text-slate-300 font-medium">
@@ -98,7 +98,7 @@ export const Bonuses: React.FC = () => {
                     Novo
                   </span>
                 )}
-                <h3 className="text-[15px] sm:text-lg font-bold text-white leading-snug">
+                <h3 className="text-[15px] sm:text-lg font-extrabold text-white leading-snug">
                   {bonus.name}
                 </h3>
                 <p className="mt-1 text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -143,7 +143,7 @@ export const Bonuses: React.FC = () => {
         <div className="mt-6 space-y-2">
           <button
             onClick={scrollToPlanos}
-            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-sm sm:text-base tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
+            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-extrabold text-sm sm:text-base tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
           >
             QUERO OS 5 BÔNUS JUNTO
           </button>

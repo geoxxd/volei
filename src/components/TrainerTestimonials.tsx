@@ -48,7 +48,7 @@ const DEPOIMENTOS: Depoimento[] = [
 export const TrainerTestimonials: React.FC = () => {
   return (
     <section id="treinadores" className="py-12 sm:py-16 px-4 max-w-4xl mx-auto">
-      <h2 className="text-center text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase text-balance">
+      <h2 className="text-center text-3xl sm:text-4xl font-black text-[#0E4B75] tracking-tight uppercase text-balance">
         TREINADORES QUE JÁ UTILIZARAM E APROVARAM
       </h2>
 

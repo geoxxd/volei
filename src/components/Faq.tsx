@@ -50,7 +50,7 @@ export const Faq: React.FC = () => {
   return (
     <section className="py-12 sm:py-16 px-4 max-w-3xl mx-auto">
       <div className="text-center">
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
+        <h2 className="text-3xl sm:text-4xl font-black text-[#0E4B75] tracking-tight uppercase">
           PERGUNTAS FREQUENTES
         </h2>
       </div>

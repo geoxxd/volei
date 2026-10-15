@@ -63,7 +63,7 @@ export const Features: React.FC = () => {
     <section className="py-12 sm:py-16 px-4 max-w-4xl mx-auto">
       <div className="text-center">
         {/* Title */}
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
+        <h2 className="text-3xl sm:text-4xl font-black text-[#0E4B75] tracking-tight uppercase">
           TUDO QUE VOCÊ VAI RECEBER
         </h2>
         {/* Subtitle */}
@@ -98,7 +98,7 @@ export const Features: React.FC = () => {
               ) : (
                 <div className="text-3xl sm:text-4xl mb-3">{feat.icon}</div>
               )}
-              <h3 className="text-base sm:text-lg font-bold text-[#0E4B75] font-heading flex items-center gap-1.5">
+              <h3 className="text-base sm:text-lg font-extrabold text-[#0E4B75] font-heading flex items-center gap-1.5">
                 <span>{feat.image ? feat.title : `${feat.icon} ${feat.title}`}</span>
               </h3>
               <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
@@ -113,7 +113,7 @@ export const Features: React.FC = () => {
       <div className="mt-8 max-w-md mx-auto text-center">
         <button
           onClick={scrollToPlanos}
-          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-sm sm:text-base tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
+          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-extrabold text-sm sm:text-base tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
         >
           QUERO MONTAR MINHAS AULAS PELO APP
         </button>

@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[360px] bg-gradient-to-b from-[#FF9F1C]/10 via-[#0E4B75]/10 to-transparent blur-3xl pointer-events-none -z-10" />
 
       {/* Main Headline */}
-      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0E4B75] leading-[1.15] max-w-3xl mx-auto text-balance">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0E4B75] leading-[1.1] max-w-3xl mx-auto text-balance">
         <span className="text-[#FF9F1C] font-black">+240</span> Exercícios de Vôlei de Areia{' '}
         <span className="underline decoration-[#0284C7] decoration-[4px] underline-offset-6 text-[#0E4B75]">
           Prontos
@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
       <div className="w-full max-w-md mx-auto">
         <button
           onClick={scrollToPlanos}
-          className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-black text-base sm:text-lg tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
+          className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-[#FF4A3F] via-[#FF3B2F] to-[#FF4A3F] text-white font-extrabold text-base sm:text-lg tracking-wide shadow-xl hover:brightness-105 active:scale-[0.98] transition-all animate-pulse-cta cursor-pointer uppercase border-b-4 border-[#C92A20]"
         >
           QUERO OS 240 EXERCÍCIOS NO MEU CELULAR
         </button>

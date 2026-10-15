@@ -48,7 +48,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
           <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 uppercase tracking-wider">
             <Play className="w-3.5 h-3.5 fill-current" /> Demonstração Rápida
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-white font-heading mt-0.5">
+          <h3 className="text-lg sm:text-xl font-extrabold text-white font-heading mt-0.5">
             Veja o Código da Areia Funcionando (1 min)
           </h3>
           <p className="text-xs text-slate-400 font-mono mt-0.5">
