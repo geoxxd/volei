@@ -1,5 +1,6 @@
 import React from 'react';
 import { scrollToPlanos } from '../utils/utm';
+import bonus01 from '../assets/images/bonus-01-planejamento.webp';
 
 interface BonusItem {
   numberString: string;
@@ -8,6 +9,7 @@ interface BonusItem {
   originalPrice: string;
   isNew?: boolean;
   icon: string;
+  image?: string;
   shortName: string;
 }
 
@@ -19,6 +21,7 @@ const BONUSES: BonusItem[] = [
     desc: 'Saiba qual fundamento trabalhar em cada dia da semana, separado por nível da turma.',
     originalPrice: 'R$ 67',
     icon: '📅',
+    image: bonus01,
   },
   {
     numberString: '02',
@@ -83,13 +86,27 @@ export const Bonuses: React.FC = () => {
               key={bonus.numberString}
               className="relative flex items-stretch gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:border-[#FFC145]/60 transition-colors"
             >
-              {/* Bloco do número */}
+              {/* Bloco do número / capa */}
+              {bonus.image ? (
+                <div className="shrink-0 w-[72px] sm:w-[88px] rounded-xl overflow-hidden shadow-lg bg-[#FFC145]">
+                  <img
+                    src={bonus.image}
+                    width={300}
+                    height={435}
+                    alt={`Capa do bônus ${bonus.numberString}: ${bonus.name}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="block w-full h-full object-cover object-center"
+                  />
+                </div>
+              ) : (
               <div className="shrink-0 w-[72px] sm:w-[88px] rounded-xl bg-gradient-to-br from-[#FFC145] to-[#FF9F1C] flex flex-col items-center justify-center text-[#0B2A44] shadow-lg">
                 <span className="text-2xl sm:text-3xl leading-none">{bonus.icon}</span>
                 <span className="mt-1.5 text-[10px] sm:text-[11px] font-black uppercase tracking-wider">
                   Bônus {bonus.numberString}
                 </span>
               </div>
+              )}
 
               {/* Texto */}
               <div className="flex-1 min-w-0 py-0.5">
