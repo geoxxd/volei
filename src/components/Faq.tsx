@@ -50,7 +50,7 @@ export const Faq: React.FC = () => {
   return (
     <section className="py-12 sm:py-16 px-4 max-w-3xl mx-auto">
       <div className="text-center">
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0E4B75] tracking-wide uppercase">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-wide uppercase">
           PERGUNTAS FREQUENTES
         </h2>
       </div>
@@ -62,23 +62,23 @@ export const Faq: React.FC = () => {
           return (
             <div
               key={idx}
-              className="rounded-2xl bg-white border border-[#E2DBC9] overflow-hidden transition-all duration-200 shadow-2xs"
+              className="rounded-2xl bg-[#131929] border border-slate-800 overflow-hidden transition-all duration-200"
             >
               <button
                 onClick={() => toggleIndex(idx)}
-                className="w-full p-4 sm:p-5 flex items-center justify-between gap-4 text-left font-bold text-sm sm:text-base text-[#0E4B75] hover:text-[#062842] transition-colors cursor-pointer"
+                className="w-full p-4 sm:p-5 flex items-center justify-between gap-4 text-left font-bold text-sm sm:text-base text-slate-200 hover:text-white transition-colors cursor-pointer"
                 aria-expanded={isOpen}
               >
                 <span>{item.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                  className={`w-5 h-5 text-slate-500 shrink-0 transition-transform duration-200 ${
                     isOpen ? 'rotate-180 text-[#FF9F1C]' : ''
                   }`}
                 />
               </button>
 
               {isOpen && (
-                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 bg-[#FAF7F0] font-medium">
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800 bg-[#0F1520] font-medium">
                   {item.answer}
                 </div>
               )}

@@ -17,7 +17,7 @@ export default function App() {
   const [isUpsellModalOpen, setIsUpsellModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F7F4EE] text-[#0F172A] flex flex-col font-sans selection:bg-[#FF9F1C] selection:text-white">
+    <div className="min-h-screen bg-[#0A0E17] text-white flex flex-col font-sans selection:bg-[#FF9F1C] selection:text-white">
       {/* 1. FAIXA FIXA NO TOPO */}
       <TopBanner />
 
