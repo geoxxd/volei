@@ -55,12 +55,12 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({ isOpen, onClose }) => 
 
         {/* Título */}
         <h3 className="text-xl sm:text-2xl font-black text-[#0E4B75] font-heading mt-3 uppercase text-balance leading-tight">
-          Leve os 240 exercícios por só R$ 5 a mais
+          Troque o PDF pelo APP por só R$ 5 a mais
         </h3>
 
         {/* Texto */}
         <p className="mt-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed text-balance font-medium">
-          Em vez de 100 exercícios, você leva os 240 completos, do iniciante ao avançado, com ataque, bloqueio, defesa, side-out, o Modo Arena e os 5 bônus.
+          Em vez de 100 exercícios em PDF, você leva o app com os 240, do iniciante ao avançado, com o Modo Arena e os 5 bônus.
         </p>
 
         {/* Preço */}
@@ -78,6 +78,10 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({ isOpen, onClose }) => 
 
         {/* Mini-lista */}
         <div className="p-3.5 rounded-xl bg-[#FAF7F0] border border-[#E2DBC9] text-left space-y-2 mb-6">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
+            <span className="text-emerald-600 font-bold shrink-0">✅</span>
+            <span>App no celular no lugar do PDF</span>
+          </div>
           <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
             <span className="text-emerald-600 font-bold shrink-0">✅</span>
             <span>Todos os 240 exercícios</span>

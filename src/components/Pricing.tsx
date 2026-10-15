@@ -26,6 +26,9 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
         {/* ================= CARD BÁSICO ================= */}
         <div className="order-2 md:order-1 rounded-3xl bg-white border border-[#E2DBC9] p-6 sm:p-8 flex flex-col justify-between shadow-sm">
           <div>
+            <span className="inline-block mb-2 text-xs font-black uppercase tracking-wide px-3 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+              📄 VERSÃO PDF
+            </span>
             <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Acesso Essencial
             </div>
@@ -51,19 +54,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
             <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-left">
               <li className="flex items-start gap-2 text-slate-800 font-medium">
                 <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>+100 exercícios dos fundamentos de base</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>40 de manchete e passe</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>35 de toque e levantamento</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>30 de saque</span>
+                <span>+100 exercícios em PDF: 40 de manchete, 35 de toque e 30 de saque</span>
               </li>
               <li className="flex items-start gap-2 text-slate-800 font-medium">
                 <span className="text-emerald-600 font-bold shrink-0">✅</span>
@@ -75,6 +66,10 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
               </li>
 
               {/* Disabled / Strikethrough items */}
+              <li className="flex items-start gap-2 text-slate-400 line-through">
+                <span className="text-rose-400 font-bold shrink-0">❌</span>
+                <span>App no celular, com filtro por nível e número de alunos</span>
+              </li>
               <li className="flex items-start gap-2 text-slate-400 line-through">
                 <span className="text-rose-400 font-bold shrink-0">❌</span>
                 <span>Ataque, bloqueio, defesa e side-out</span>
@@ -110,7 +105,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
             {/* Destaque abaixo do card básico */}
             <div className="mt-3 text-center">
               <span className="text-xs font-bold text-[#C27803] bg-[#FEF3C7] px-3 py-1 rounded-full border border-[#FDE68A] inline-block">
-                🔥 +R$ 14 e leve os 240 exercícios + Modo Arena + 5 bônus grátis 👇
+                🔥 +R$ 14 e leve o APP com os 240 exercícios + Modo Arena + 5 bônus 👇
               </span>
             </div>
           </div>
@@ -127,6 +122,9 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
           </div>
 
           <div>
+            <span className="inline-block mt-2 text-xs font-black uppercase tracking-wide px-3 py-1 rounded-full bg-[#E0F2FE] text-[#0369A1] border border-[#BAE6FD]">
+              📲 VERSÃO APP
+            </span>
             <div className="text-xs font-bold uppercase tracking-wider text-[#FF9F1C] mt-2">
               Experiência Total
             </div>
@@ -150,6 +148,10 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
 
             {/* Features list */}
             <ul className="mt-6 space-y-2 text-xs sm:text-sm text-left">
+              <li className="flex items-start gap-2 text-slate-950 font-bold">
+                <span className="text-[#FF9F1C] font-bold shrink-0">✅</span>
+                <span>App no celular: escolha o exercício pelo nível e pelo número de alunos</span>
+              </li>
               <li className="flex items-start gap-2 text-slate-950 font-bold">
                 <span className="text-[#FF9F1C] font-bold shrink-0">✅</span>
                 <span>240 exercícios de vôlei de areia prontos para aplicar</span>
