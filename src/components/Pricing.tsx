@@ -164,38 +164,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
                 <span className="text-emerald-600 font-bold shrink-0">✅</span>
                 <span>Do iniciante ao avançado</span>
               </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>40 de manchete e passe</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>35 de toque e levantamento</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>30 de saque</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>35 de ataque (cortada e largada)</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>25 de bloqueio</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>35 de defesa</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>20 de side-out e transição</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-800 font-medium">
-                <span className="text-emerald-600 font-bold shrink-0">✅</span>
-                <span>20 jogos reduzidos e aquecimentos</span>
-              </li>
+
               <li className="flex items-start gap-2 text-slate-800 font-medium">
                 <span className="text-emerald-600 font-bold shrink-0">✅</span>
                 <span>Exercícios novos entram direto no app</span>
