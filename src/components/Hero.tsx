@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
 
       {/* Subheadline */}
       <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
-        Tudo num app no seu celular, você abre, escolhe pelo nível e pelo número de alunos e aplica direto na arena.
+        App com todos os fundamentos da dupla de praia, diagramas de quadra, variações por nível e filtro por categoria, acesso direto pelo celular.
       </p>
 
       {/* Mockup do celular com o app aberto */}
