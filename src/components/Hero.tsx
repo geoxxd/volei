@@ -49,13 +49,6 @@ export const Hero: React.FC = () => {
           🎁 BÔNUS GRÁTIS
         </span>
       </div>
-
-      {/* Prova social (trocar por número real de professores quando houver) */}
-      <div className="mt-6 pt-5 border-t border-slate-300/70 max-w-lg mx-auto">
-        <p className="text-[#0E4B75] font-bold text-sm sm:text-base">
-          🏖️ Feito para quem dá aula na praia e na arena
-        </p>
-      </div>
     </section>
   );
 };
