@@ -4,6 +4,7 @@ import iconAreia from '../assets/images/features/feature-areia.webp';
 import iconCodigo from '../assets/images/features/feature-codigo.webp';
 import iconEvolucao from '../assets/images/features/feature-evolucao.webp';
 import iconCelular from '../assets/images/features/feature-celular.webp';
+import iconArena from '../assets/images/features/feature-arena.webp';
 
 interface FeatureItem {
   icon: string;
@@ -48,6 +49,7 @@ const FEATURES: FeatureItem[] = [
   },
   {
     icon: '🎛️',
+    image: iconArena,
     title: 'Modo Arena',
     description: 'O app conduz a aula com você: timer de cada bloco, placar do jogo, sorteio de duplas e rodízio. Você só olha para a turma.',
     accent: 'border-2 border-[#0284C7]/60 hover:border-[#0284C7] shadow-md ring-1 ring-[#0284C7]/20',
