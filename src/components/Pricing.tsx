@@ -171,7 +171,23 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
               </li>
               <li className="flex items-start gap-2 text-[#D97706] font-bold">
                 <span className="shrink-0">🎁</span>
-                <span>Os 5 bônus exclusivos (R$ 305)</span>
+                <span>Bônus 1: Planejamento Semanal da Areia (R$ 67)</span>
+              </li>
+              <li className="flex items-start gap-2 text-[#D97706] font-bold">
+                <span className="shrink-0">🎁</span>
+                <span>Bônus 2: 30 Aulas Montadas de 1 hora (R$ 47)</span>
+              </li>
+              <li className="flex items-start gap-2 text-[#D97706] font-bold">
+                <span className="shrink-0">🎁</span>
+                <span>Bônus 3: Guia Turma Mista e Aula Particular (R$ 37)</span>
+              </li>
+              <li className="flex items-start gap-2 text-[#D97706] font-bold">
+                <span className="shrink-0">🎁</span>
+                <span>Bônus 4: Plano de Evolução de 12 Semanas (R$ 97)</span>
+              </li>
+              <li className="flex items-start gap-2 text-[#D97706] font-bold">
+                <span className="shrink-0">🎁</span>
+                <span>Bônus 5: Ficha de Evolução do Aluno (R$ 57)</span>
               </li>
               <li className="flex items-start gap-2 text-emerald-700 font-bold">
                 <span className="shrink-0">💬</span>
