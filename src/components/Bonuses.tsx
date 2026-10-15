@@ -2,6 +2,7 @@ import React from 'react';
 import { scrollToPlanos } from '../utils/utm';
 import bonus01 from '../assets/images/bonus-01-planejamento.webp';
 import bonus02 from '../assets/images/bonus-02-aulas.webp';
+import bonus03 from '../assets/images/bonus-03-turma-mista.webp';
 
 interface BonusItem {
   numberString: string;
@@ -40,6 +41,7 @@ const BONUSES: BonusItem[] = [
     desc: 'Ajuste cada exercício ao nível e ao número de alunos, de 1 aluno até a turma cheia.',
     originalPrice: 'R$ 37',
     icon: '👥',
+    image: bonus03,
   },
   {
     numberString: '04',
