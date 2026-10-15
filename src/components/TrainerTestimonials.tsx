@@ -1,5 +1,7 @@
 import React from 'react';
 import depoimento1 from '../assets/images/depoimentos/depoimento-1.webp';
+import depoimento2 from '../assets/images/depoimentos/depoimento-2.webp';
+import depoimento3 from '../assets/images/depoimentos/depoimento-3.webp';
 
 /**
  * DEPOIMENTOS DE TREINADORES (prints reais de WhatsApp)
@@ -14,15 +16,29 @@ const MOSTRAR_ESPACOS_VAZIOS = true;
 interface Depoimento {
   src: string | null;
   alt: string;
+  w?: number;
+  h?: number;
 }
 
 const DEPOIMENTOS: Depoimento[] = [
   {
     src: depoimento1,
     alt: 'Conversa de WhatsApp em que um treinador agradece pelo material, diz que ficou mais fácil planejar os treinos e que já aplicou com a turma na areia',
+    w: 800,
+    h: 820,
   },
-  { src: null, alt: '' },
-  { src: null, alt: '' },
+  {
+    src: depoimento2,
+    alt: 'Conversa de WhatsApp em que um professor de projeto social elogia a qualidade e a praticidade do material e diz que sentiu diferença nas crianças com os treinos',
+    w: 800,
+    h: 1135,
+  },
+  {
+    src: depoimento3,
+    alt: 'Conversa de WhatsApp em que um treinador de vôlei de praia agradece pelo material organizado e fácil de acessar, inclusive na quadra de areia',
+    w: 800,
+    h: 1419,
+  },
   { src: null, alt: '' },
   { src: null, alt: '' },
 ];
@@ -41,7 +57,7 @@ export const TrainerTestimonials: React.FC = () => {
       </h2>
 
       {/* Celular: carrossel de deslizar. Desktop: grade de 3 colunas. */}
-      <div className="mt-8 -mx-4 px-4 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible">
+      <div className="mt-8 -mx-4 px-4 flex items-start gap-3 overflow-x-auto snap-x snap-mandatory pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:px-0 sm:grid sm:items-start sm:grid-cols-3 sm:gap-4 sm:overflow-visible">
         {itens.map((item, idx) =>
           item.src ? (
             <figure
@@ -50,8 +66,8 @@ export const TrainerTestimonials: React.FC = () => {
             >
               <img
                 src={item.src}
-                width={LARGURA}
-                height={ALTURA}
+                width={item.w}
+                height={item.h}
                 alt={item.alt}
                 loading="lazy"
                 decoding="async"
