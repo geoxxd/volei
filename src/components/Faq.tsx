@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, MessageCircle } from 'lucide-react';
-import { LINKS } from '../config/links';
-import { buildUrlWithParams } from '../utils/utm';
+import { ChevronDown } from 'lucide-react';
 
 interface FaqItem {
   question: string;
@@ -48,7 +46,6 @@ export const Faq: React.FC = () => {
     );
   };
 
-  const whatsappUrl = buildUrlWithParams(LINKS.WHATSAPP);
 
   return (
     <section className="py-12 sm:py-16 px-4 max-w-3xl mx-auto">
@@ -88,27 +85,6 @@ export const Faq: React.FC = () => {
             </div>
           );
         })}
-      </div>
-
-      {/* Título abaixo: AINDA FICOU COM ALGUMA DÚVIDA? */}
-      <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-[#E2DBC9] text-center space-y-3 shadow-sm">
-        <h3 className="text-xl sm:text-2xl font-bold text-[#0E4B75] uppercase font-heading">
-          AINDA FICOU COM ALGUMA DÚVIDA?
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-600 font-medium">
-          Fale direto com o nosso suporte antes de começar.
-        </p>
-        <div className="pt-2">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-4 rounded-2xl bg-[#25D366] hover:bg-[#1fb355] text-white font-black text-sm sm:text-base tracking-wide transition-all shadow-md active:scale-95 cursor-pointer uppercase"
-          >
-            <MessageCircle className="w-5 h-5 fill-current" />
-            <span>TIRAR DÚVIDAS NO WHATSAPP</span>
-          </a>
-        </div>
       </div>
     </section>
   );
