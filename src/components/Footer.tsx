@@ -1,4 +1,4 @@
-import { LINKS } from '../config/links';
+
 import React, { useMemo } from 'react';
 
 export const Footer: React.FC = () => {
@@ -7,10 +7,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="py-10 px-4 bg-[#EAE4D5] border-t border-[#DDD4C0] text-center text-xs text-slate-600 space-y-3">
       <div className="max-w-3xl mx-auto space-y-2">
-        {/* Suporte */}
-        <p className="text-slate-800 font-bold">
-          Suporte via WhatsApp: <a href={LINKS.WHATSAPP} target="_blank" rel="noopener noreferrer" className="underline">falar com o suporte</a>
-        </p>
+
 
         {/* Políticas */}
         <p className="text-slate-600 font-medium">
