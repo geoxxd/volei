@@ -3,6 +3,7 @@ import { scrollToPlanos } from '../utils/utm';
 import bonus01 from '../assets/images/bonus-01-planejamento.webp';
 import bonus02 from '../assets/images/bonus-02-aulas.webp';
 import bonus03 from '../assets/images/bonus-03-turma-mista.webp';
+import bonus04 from '../assets/images/bonus-04-evolucao.webp';
 
 interface BonusItem {
   numberString: string;
@@ -51,6 +52,7 @@ const BONUSES: BonusItem[] = [
     originalPrice: 'R$ 97',
     isNew: true,
     icon: '🚀',
+    image: bonus04,
   },
   {
     numberString: '05',
