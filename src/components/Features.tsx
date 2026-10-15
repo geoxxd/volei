@@ -40,7 +40,7 @@ const FEATURES: FeatureItem[] = [
     description: 'O app conduz a aula com você: timer de cada bloco, placar do jogo, sorteio de duplas e rodízio. Você só olha para a turma.',
     accent: 'border-2 border-[#0284C7]/60 hover:border-[#0284C7] shadow-md ring-1 ring-[#0284C7]/20',
     bg: 'bg-gradient-to-br from-white via-cyan-50/30 to-amber-50/20',
-    badge: 'EXCLUSIVO',
+    badge: 'NOVIDADE',
   },
   {
     icon: '📈',
