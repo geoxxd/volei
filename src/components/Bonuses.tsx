@@ -1,6 +1,7 @@
 import React from 'react';
 import { scrollToPlanos } from '../utils/utm';
 import bonus01 from '../assets/images/bonus-01-planejamento.webp';
+import bonus02 from '../assets/images/bonus-02-aulas.webp';
 
 interface BonusItem {
   numberString: string;
@@ -30,6 +31,7 @@ const BONUSES: BonusItem[] = [
     desc: 'Do aquecimento ao jogo final, na sequência certa. É só abrir e seguir.',
     originalPrice: 'R$ 47',
     icon: '📋',
+    image: bonus02,
   },
   {
     numberString: '03',
