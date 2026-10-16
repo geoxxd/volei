@@ -11,11 +11,14 @@ export const Hero: React.FC = () => {
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
-    video.play().catch(() => {});
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
   }, []);
 
   // Quando o lead clica na tela: volta ao começo (0s), desmuta e toca com áudio
-  const handleStartWithSound = (e?: React.MouseEvent) => {
+  const handleStartWithSound = async (e?: React.MouseEvent) => {
     if (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -23,26 +26,23 @@ export const Hero: React.FC = () => {
     const video = videoRef.current;
     if (!video) return;
 
+    try {
+      video.pause();
+    } catch {
+      // Ignora erro de pausa se já estiver pausado
+    }
+
     video.currentTime = 0; // Volta ao começo
     video.muted = false;   // Ativa o áudio
     video.volume = 1;
     video.loop = false;
-    video.play().catch(() => {});
+    
+    try {
+      await video.play();
+    } catch {
+      // Trata com segurança caso a promise seja cancelada
+    }
     setIsPlayingAudio(true);
-  };
-
-  const handleVideoClick = () => {
-    if (!isPlayingAudio) {
-      handleStartWithSound();
-      return;
-    }
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
   };
 
   return (
@@ -78,8 +78,8 @@ export const Hero: React.FC = () => {
             autoPlay
             muted={!isPlayingAudio}
             loop={!isPlayingAudio}
-            className="w-full h-auto rounded-[28px] object-cover block shadow-inner cursor-pointer"
-            onClick={handleVideoClick}
+            className={`w-full h-auto rounded-[28px] object-cover block shadow-inner ${!isPlayingAudio ? 'cursor-pointer' : ''}`}
+            onClick={!isPlayingAudio ? handleStartWithSound : undefined}
           >
             Seu navegador não suporta a tag de vídeo.
           </video>
