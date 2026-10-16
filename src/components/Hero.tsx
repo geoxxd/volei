@@ -64,15 +64,15 @@ export const Hero: React.FC = () => {
         App com todos os fundamentos da dupla de praia, diagramas de quadra, variações por nível e filtro por categoria, acesso direto pelo celular.
       </p>
 
-      {/* Vídeo demonstrativo do aplicativo (Imgur a/iAOPy8W) */}
+      {/* Vídeo demonstrativo do aplicativo (Imgur a/7zDDHGV) */}
       <div className="my-8 sm:my-10 max-w-[280px] sm:max-w-[320px] mx-auto">
         <div className="relative rounded-[36px] p-2 bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl border-4 border-slate-700/80 overflow-hidden group">
           <div className="absolute -inset-4 bg-gradient-to-tr from-[#FF9F1C]/25 via-[#0E4B75]/20 to-[#FF4A3F]/20 rounded-[48px] blur-xl opacity-70 pointer-events-none -z-10" />
           
           <video
             ref={videoRef}
-            src="https://i.imgur.com/4r1NGGW.mp4"
-            poster="https://i.imgur.com/4r1NGGW.jpg"
+            src="https://i.imgur.com/GfgesKg.mp4"
+            poster="https://i.imgur.com/GfgesKg.jpg"
             controls={isPlayingAudio}
             playsInline
             autoPlay
