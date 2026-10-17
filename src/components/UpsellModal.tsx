@@ -64,35 +64,42 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({ isOpen, onClose }) => 
         </p>
 
         {/* Preço */}
-        <div className="my-5 p-3.5 rounded-2xl bg-[#F7F4EE] border border-[#E2DBC9] inline-block w-full">
-          <span className="text-xs text-slate-400 line-through font-medium">
-            De R$ 24
+        <div className="my-4 p-3.5 rounded-2xl bg-[#F7F4EE] border border-[#E2DBC9] inline-block w-full">
+          <span className="text-xs text-slate-500 font-bold block">
+            Plano Completo de <span className="line-through text-slate-400">R$ 24</span> por apenas:
           </span>
           <div className="flex items-baseline justify-center gap-1.5 mt-0.5">
-            <span className="text-xs font-bold text-[#0E4B75]">por</span>
             <span className="text-3xl sm:text-4xl font-black text-[#FF4A3F] font-heading">
               R$ 15
             </span>
+            <span className="text-xs text-slate-600 font-bold">pagamento único</span>
           </div>
         </div>
 
-        {/* Mini-lista */}
-        <div className="p-3.5 rounded-xl bg-[#FAF7F0] border border-[#E2DBC9] text-left space-y-2 mb-6">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
-            <span className="text-emerald-600 font-bold shrink-0">✅</span>
-            <span>App no celular no lugar do PDF</span>
+        {/* Lista resumida com tudo o que o plano de 24 tem */}
+        <div className="p-3.5 sm:p-4 rounded-2xl bg-[#FAF7F0] border border-[#E2DBC9] text-left space-y-2 mb-5">
+          <div className="text-[11px] font-black uppercase tracking-wider text-[#0E4B75] pb-1 border-b border-[#E2DBC9]">
+            Tudo o que você recebe nesta oferta especial:
           </div>
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
+          <div className="flex items-start gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
             <span className="text-emerald-600 font-bold shrink-0">✅</span>
-            <span>Todos os 240 exercícios</span>
+            <span><strong>App no Celular:</strong> todos os 240 exercícios da areia (do iniciante ao avançado)</span>
           </div>
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
+          <div className="flex items-start gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
             <span className="text-emerald-600 font-bold shrink-0">✅</span>
-            <span>Nível avançado + jogos e aquecimentos</span>
+            <span><strong>Diagramas e Filtros:</strong> escolha por fundamento, nível e número de alunos</span>
           </div>
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
+          <div className="flex items-start gap-2 text-xs sm:text-sm text-[#D97706] font-bold">
+            <span className="shrink-0">🎁</span>
+            <span><strong>Todos os 5 Bônus inclusos:</strong> Planejamento, 30 Aulas, Turma Mista, 12 Semanas e Ficha de Evolução (R$ 305 grátis)</span>
+          </div>
+          <div className="flex items-start gap-2 text-xs sm:text-sm text-slate-800 font-semibold">
             <span className="text-emerald-600 font-bold shrink-0">✅</span>
-            <span>Os 5 bônus exclusivos (R$ 305)</span>
+            <span><strong>Acesso Vitalício:</strong> novos treinos entram no app + 7 dias de garantia</span>
+          </div>
+          <div className="flex items-start gap-2 text-xs sm:text-sm text-emerald-700 font-bold">
+            <span className="shrink-0">💬</span>
+            <span><strong>Suporte Direto:</strong> atendimento exclusivo no WhatsApp</span>
           </div>
         </div>
 
