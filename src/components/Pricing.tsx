@@ -125,7 +125,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
               Experiência Total
             </div>
             <h3 className="text-2xl sm:text-3xl font-black text-[#0E4B75] font-heading mt-0.5">
-              CÓDIGO DA AREIA COMPLETO
+              MÉTODO CÓDIGO DA AREIA COMPLETO
             </h3>
 
             {/* Preço */}
