@@ -101,7 +101,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
             {/* Destaque abaixo do card básico */}
             <div className="mt-3 text-center">
               <span className="text-xs font-bold text-[#C27803] bg-[#FEF3C7] px-3 py-1 rounded-full border border-[#FDE68A] inline-block">
-                🔥 +R$ 14 e leve o APP com os 240 exercícios + 5 bônus
+                +R$ 14 e leve o APP com os 240 exercícios + 5 bônus
               </span>
             </div>
           </div>
