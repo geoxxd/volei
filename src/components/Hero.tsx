@@ -2,19 +2,40 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Volume2 } from 'lucide-react';
 import { scrollToPlanos } from '../utils/utm';
 
+const VIDEO_SRC = 'https://i.imgur.com/GfgesKg.mp4';
+
 export const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
-  // Inicia preview mudo no carregamento da página
+  // Preview mudo: o vídeo só começa a baixar depois que a página terminou de
+  // carregar (não compete com texto, imagens e scripts no PageSpeed).
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = true;
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {});
-    }
+    let cancelled = false;
+    const start = () => {
+      if (cancelled) return;
+      video.muted = true;
+      video.src = VIDEO_SRC;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    };
+    const schedule = () => {
+      const idle = (window as any).requestIdleCallback as
+        | ((cb: () => void, opts?: { timeout: number }) => void)
+        | undefined;
+      if (idle) idle(start, { timeout: 3000 });
+      else setTimeout(start, 1500);
+    };
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule, { once: true });
+    return () => {
+      cancelled = true;
+      window.removeEventListener('load', schedule);
+    };
   }, []);
 
   // Quando o lead clica na tela: volta ao começo (0s), desmuta e toca com áudio
@@ -71,14 +92,16 @@ export const Hero: React.FC = () => {
           
           <video
             ref={videoRef}
-            src="https://i.imgur.com/GfgesKg.mp4"
             poster="https://i.imgur.com/GfgesKg.jpg"
+            preload="none"
+            width={720}
+            height={1280}
             controls={isPlayingAudio}
             playsInline
             autoPlay
             muted={!isPlayingAudio}
             loop={!isPlayingAudio}
-            className={`w-full h-auto rounded-[28px] object-cover block shadow-inner ${!isPlayingAudio ? 'cursor-pointer' : ''}`}
+            className={`w-full h-auto aspect-[9/16] rounded-[28px] object-cover block shadow-inner ${!isPlayingAudio ? 'cursor-pointer' : ''}`}
             onClick={!isPlayingAudio ? handleStartWithSound : undefined}
           >
             Seu navegador não suporta a tag de vídeo.
