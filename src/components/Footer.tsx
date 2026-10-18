@@ -9,9 +9,9 @@ export const Footer: React.FC = () => {
       <div className="max-w-3xl mx-auto space-y-2">
 
         {/* Logo Branding */}
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <img src="/favicon.svg" alt="Logo Código da Areia" className="w-8 h-8 rounded-full shadow-sm" />
-          <span className="font-extrabold text-sm text-[#0E4B75] uppercase tracking-wider">Código da Areia</span>
+        <div className="flex items-center justify-center gap-2.5 mb-3">
+          <img src="/favicon.svg" alt="Logo Código da Areia" className="w-12 h-12 drop-shadow-md transition-transform hover:scale-105" />
+          <span className="font-extrabold text-base text-[#0E4B75] uppercase tracking-wider">Código da Areia</span>
         </div>
 
         {/* Políticas */}
