@@ -8,6 +8,11 @@ export const Footer: React.FC = () => {
     <footer className="py-10 px-4 bg-[#EAE4D5] border-t border-[#DDD4C0] text-center text-xs text-slate-600 space-y-3">
       <div className="max-w-3xl mx-auto space-y-2">
 
+        {/* Logo Branding */}
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <img src="/favicon.svg" alt="Logo Código da Areia" className="w-8 h-8 rounded-full shadow-sm" />
+          <span className="font-extrabold text-sm text-[#0E4B75] uppercase tracking-wider">Código da Areia</span>
+        </div>
 
         {/* Políticas */}
         <p className="text-slate-600 font-medium">
