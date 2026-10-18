@@ -1,33 +1,63 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFDE00"/>
+      <stop offset="0%" stop-color="#FFD000"/>
       <stop offset="50%" stop-color="#FF9F1C"/>
-      <stop offset="100%" stop-color="#E57C00"/>
+      <stop offset="100%" stop-color="#E58900"/>
     </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.1"/>
+    </filter>
   </defs>
 
-  <!-- Bola de Vôlei de Praia Gigante (Preenche 95% do espaço para máxima visibilidade) -->
-  <g>
-    <!-- Base Circular Branca -->
-    <circle cx="256" cy="256" r="236" fill="#FFFFFF" stroke="#0F172A" stroke-width="22" />
+  <!-- Fundo Circular Branco com Borda Dourada Externa -->
+  <circle cx="256" cy="256" r="238" fill="#FFFFFF" stroke="url(#goldGrad)" stroke-width="22" filter="url(#shadow)"/>
 
-    <!-- Faixas e Gomos Amarelos/Dourados de Vôlei de Praia -->
-    <path d="M 38,200 C 70,110 150,50 256,42 C 340,36 410,80 448,140 C 370,60 230,60 145,130 C 80,185 55,270 70,350 C 48,305 35,252 38,200 Z" fill="url(#goldGrad)" stroke="#0F172A" stroke-width="14" />
-    <path d="M 474,312 C 442,402 362,462 256,470 C 172,476 102,432 64,372 C 142,452 282,452 367,382 C 432,327 457,242 442,162 C 464,207 477,260 474,312 Z" fill="url(#goldGrad)" stroke="#0F172A" stroke-width="14" />
+  <!-- Sol ao Fundo no Canto Superior Direito -->
+  <path d="M 280,140 A 55,55 0 1,1 390,140 Z" fill="url(#goldGrad)"/>
+  <path d="M 320,162 H 410 M 345,178 H 398" stroke="url(#goldGrad)" stroke-width="8" stroke-linecap="round"/>
 
-    <!-- Painéis do Centro da Bola -->
-    <path d="M 120,256 C 180,180 332,180 392,256 C 332,332 180,332 120,256 Z" fill="url(#goldGrad)" opacity="0.15" />
+  <!-- Rede de Vôlei (Poste Esquerdo + Grade Transparente/Dourada) -->
+  <rect x="86" y="175" width="18" height="185" rx="9" fill="url(#goldGrad)"/>
+  
+  <!-- Faixas Superior e Inferior da Rede -->
+  <line x1="104" y1="190" x2="436" y2="255" stroke="url(#goldGrad)" stroke-width="12" stroke-linecap="round"/>
+  <line x1="104" y1="320" x2="436" y2="340" stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Linhas Internas da Rede -->
+  <line x1="135" y1="196" x2="135" y2="322" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="165" y1="202" x2="165" y2="324" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="195" y1="208" x2="195" y2="326" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="325" y1="234" x2="325" y2="333" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="355" y1="240" x2="355" y2="335" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="385" y1="246" x2="385" y2="337" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="415" y1="252" x2="415" y2="339" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  
+  <line x1="104" y1="222" x2="436" y2="277" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="104" y1="254" x2="436" y2="298" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
+  <line x1="104" y1="286" x2="436" y2="319" stroke="url(#goldGrad)" stroke-width="4" opacity="0.4"/>
 
-    <!-- Linhas e Costuras Pretas Cospícuas do Vôlei -->
-    <path d="M 42,200 C 130,70 330,50 448,140" fill="none" stroke="#0F172A" stroke-width="20" stroke-linecap="round" />
-    <path d="M 85,110 C 190,30 385,80 460,200" fill="none" stroke="#0F172A" stroke-width="20" stroke-linecap="round" />
+  <!-- Dunas de Areia na Parte Inferior -->
+  <path d="M 80,345 Q 180,295 280,375 T 450,325 A 238,238 0 0,1 80,345 Z" fill="url(#goldGrad)"/>
+  <path d="M 120,395 Q 240,325 380,415 A 238,238 0 0,1 120,395 Z" fill="#E58900"/>
 
-    <path d="M 22,256 C 150,110 362,402 490,256" fill="none" stroke="#0F172A" stroke-width="22" stroke-linecap="round" />
-    <path d="M 64,372 C 182,462 382,442 470,312" fill="none" stroke="#0F172A" stroke-width="20" stroke-linecap="round" />
-    <path d="M 52,312 C 127,432 322,482 427,402" fill="none" stroke="#0F172A" stroke-width="20" stroke-linecap="round" />
-
-    <path d="M 180,45 C 290,175 330,337 270,467" fill="none" stroke="#0F172A" stroke-width="20" stroke-linecap="round" />
-    <path d="M 115,75 C 225,205 265,337 205,437" fill="none" stroke="#0F172A" stroke-width="20" stroke-linecap="round" />
+  <!-- Bola de Vôlei de Praia Central Destacada -->
+  <g transform="translate(256, 230)">
+    <!-- Fundo da Bola -->
+    <circle cx="0" cy="0" r="92" fill="#FFFFFF" stroke="url(#goldGrad)" stroke-width="14" filter="url(#shadow)"/>
+    
+    <!-- Painéis Amarelos de Vôlei -->
+    <path d="M -88,-20 C -48,-75 22,-90 70,-65 C 22,-38 -38,5 -60,52 C -80,22 -85,0 -88,-20 Z" fill="url(#goldGrad)"/>
+    <path d="M 88,20 C 48,75 -22,90 -70,65 C -22,38 38,-5 60,-52 C 80,-22 85,0 88,20 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Costuras da Bola -->
+    <path d="M -88,-18 C -42,-78 38,-82 85,-48" fill="none" stroke="url(#goldGrad)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M -68,-48 C -18,-88 58,-62 88,-18" fill="none" stroke="url(#goldGrad)" stroke-width="9" stroke-linecap="round"/>
+    
+    <path d="M -92,0 C -32,-52 32,52 92,0" fill="none" stroke="url(#goldGrad)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M -50,72 C 22,88 72,48 88,18" fill="none" stroke="url(#goldGrad)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M -88,18 C -48,62 22,88 72,48" fill="none" stroke="url(#goldGrad)" stroke-width="9" stroke-linecap="round"/>
+    
+    <path d="M -18,-88 C 22,-22 42,38 18,88" fill="none" stroke="url(#goldGrad)" stroke-width="9" stroke-linecap="round"/>
   </g>
 </svg>
