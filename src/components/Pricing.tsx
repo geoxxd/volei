@@ -150,7 +150,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
               </li>
               <li className="flex items-start gap-2 text-slate-950 font-bold">
                 <span className="text-[#FF9F1C] font-bold shrink-0">✅</span>
-                <span>240 exercícios de vôlei de areia prontos para aplicar</span>
+                <span>240 exercícios de vôlei de praia prontos para aplicar</span>
               </li>
               <li className="flex items-start gap-2 text-slate-800 font-medium">
                 <span className="text-emerald-600 font-bold shrink-0">✅</span>

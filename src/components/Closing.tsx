@@ -12,7 +12,7 @@ export const Closing: React.FC = () => {
 
         {/* Texto */}
         <p className="text-base sm:text-xl text-slate-700 font-semibold">
-          240 exercícios de vôlei de areia no seu celular, a partir de R$ 10.
+          240 exercícios de vôlei de praia no seu celular, a partir de R$ 10.
         </p>
 
         {/* Botão */}
