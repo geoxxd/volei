@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Hero } from './components/Hero';
 import { AppPreviewCarousel } from './components/AppPreviewCarousel';
+import { DiagramasAnimados } from './components/DiagramasAnimados';
 import { TrainerTestimonials } from './components/TrainerTestimonials';
 import { Features } from './components/Features';
 import { Bonuses } from './components/Bonuses';
@@ -29,6 +30,9 @@ export default function App() {
 
       {/* 3. PRÉVIA DO APP */}
       <AppPreviewCarousel />
+
+      {/* 3.05 DIAGRAMAS ANIMADOS */}
+      <DiagramasAnimados />
 
       {/* 3.1 DEPOIMENTOS DE TREINADORES (prints reais) */}
       <TrainerTestimonials />
