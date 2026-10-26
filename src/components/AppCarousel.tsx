@@ -14,7 +14,8 @@ interface SlideItem {
   alt: string;
 }
 
-// Todas as telas aparecem dentro da mesma moldura de celular (mesmo tamanho).
+// Mesmo carrossel da antiga seção "Veja o app por dentro", agora no topo.
+// Todas as telas são exibidas dentro da mesma moldura de celular (mesmo tamanho).
 const SLIDES: SlideItem[] = [
   { id: 1, src: tela1, alt: 'Tela inicial do app Código da Areia, com 240 exercícios para treinar na areia' },
   { id: 2, src: tela2, alt: 'Lista de exercícios de aquecimento, organizada por nível' },
@@ -25,17 +26,8 @@ const SLIDES: SlideItem[] = [
   { id: 7, src: tela7, alt: 'Lista de exercícios salvos' },
 ];
 
-/** Tempo de cada tela na troca automática. */
-const AUTOPLAY_MS = 3500;
-
-/**
- * Carrossel compacto com as telas do app, usado no topo da página.
- * As setas ficam nas laterais do celular para não ocupar altura.
- * Troca sozinho a cada 3,5 s e para de vez quando a pessoa toca nele.
- */
 export const AppCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
   const touchStartX = useRef<number | null>(null);
 
   // Pré-carrega a tela anterior e a próxima para a troca ser instantânea
@@ -50,20 +42,15 @@ export const AppCarousel: React.FC = () => {
     });
   }, [currentIndex]);
 
-  // Troca automática
-  useEffect(() => {
-    if (!autoplay) return;
-    const timer = window.setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
-    }, AUTOPLAY_MS);
-    return () => window.clearTimeout(timer);
-  }, [autoplay, currentIndex]);
-
-  const goTo = (idx: number) => {
-    setAutoplay(false);
-    setCurrentIndex((idx + SLIDES.length) % SLIDES.length);
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? SLIDES.length - 1 : prev - 1));
   };
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === SLIDES.length - 1 ? 0 : prev + 1));
+  };
+
+  // Deslizar com o dedo no celular
   const onTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -72,60 +59,64 @@ export const AppCarousel: React.FC = () => {
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     touchStartX.current = null;
     if (Math.abs(dx) < 40) return;
-    goTo(dx < 0 ? currentIndex + 1 : currentIndex - 1);
+    if (dx < 0) nextSlide();
+    else prevSlide();
   };
 
-  const arrowClass =
-    'absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white text-[#0E4B75] border border-[#E2DBC9] shadow-md active:scale-95 transition cursor-pointer';
-
   return (
-    <div className="relative mx-auto w-full max-w-[420px]">
-      {/* Celular com a tela ativa */}
+    <div className="relative max-w-md mx-auto">
+      {/* Navigation Arrows */}
+      <div className="flex items-center justify-between gap-3 mb-4">
+        <button
+          onClick={prevSlide}
+          className="p-2.5 rounded-full bg-white hover:bg-slate-50 text-[#0E4B75] border border-[#E2DBC9] shadow-sm transition-colors cursor-pointer"
+          aria-label="Tela anterior"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <div className="flex items-center gap-2">
+          {SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className={`h-2.5 rounded-full transition-all ${
+                idx === currentIndex
+                  ? 'w-7 bg-[#FF9F1C]'
+                  : 'w-2.5 bg-slate-300 hover:bg-slate-400'
+              }`}
+              aria-label={`Ir para tela ${idx + 1}`}
+            />
+          ))}
+        </div>
+        <button
+          onClick={nextSlide}
+          className="p-2.5 rounded-full bg-white hover:bg-slate-50 text-[#0E4B75] border border-[#E2DBC9] shadow-sm transition-colors cursor-pointer"
+          aria-label="Próxima tela"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Celular com a tela ativa (mesmo tamanho para todas as telas) */}
       <div
-        className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px]"
+        className="relative mx-auto w-full max-w-[280px] sm:max-w-[315px]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/* Mesma moldura de celular que o vídeo do topo usava */}
-        <div className="relative rounded-[36px] p-2 bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl border-4 border-slate-700/80">
-          <div className="absolute -inset-4 bg-gradient-to-tr from-[#FF9F1C]/25 via-[#0E4B75]/20 to-[#FF4A3F]/20 rounded-[48px] blur-xl opacity-70 pointer-events-none -z-10" />
-          <div className="relative rounded-[28px] overflow-hidden aspect-[640/1316] bg-slate-950">
-            <img
-              key={SLIDES[currentIndex].id}
-              src={SLIDES[currentIndex].src}
-              width={640}
-              height={1316}
-              alt={SLIDES[currentIndex].alt}
-              loading="eager"
-              fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
-              decoding="async"
-              draggable={false}
-              className="absolute inset-0 w-full h-full object-cover select-none"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Setas nas laterais */}
-      <button onClick={() => goTo(currentIndex - 1)} className={`${arrowClass} left-0`} aria-label="Tela anterior">
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button onClick={() => goTo(currentIndex + 1)} className={`${arrowClass} right-0`} aria-label="Próxima tela">
-        <ChevronRight className="w-5 h-5" />
-      </button>
-
-      {/* Bolinhas */}
-      <div className="mt-2.5 flex items-center justify-center gap-1.5">
-        {SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => goTo(idx)}
-            className={`h-2 rounded-full transition-all cursor-pointer ${
-              idx === currentIndex ? 'w-6 bg-[#FF9F1C]' : 'w-2 bg-slate-300'
-            }`}
-            aria-label={`Ir para tela ${idx + 1}`}
+        <div className="absolute -inset-2 bg-gradient-to-tr from-[#FF9F1C]/25 via-[#0E4B75]/20 to-[#FF4A3F]/15 rounded-[48px] blur-xl opacity-70" />
+        <div className="relative rounded-[40px] sm:rounded-[44px] border-[5px] border-slate-800 bg-slate-950 shadow-2xl overflow-hidden aspect-[9/17.5]">
+          <img
+            key={SLIDES[currentIndex].id}
+            src={SLIDES[currentIndex].src}
+            width={640}
+            height={1316}
+            alt={SLIDES[currentIndex].alt}
+            loading={currentIndex === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+            draggable={false}
+            className="absolute inset-0 w-full h-full object-fill select-none"
           />
-        ))}
+        </div>
       </div>
     </div>
   );
