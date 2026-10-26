@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { EMAIL_SUPORTE } from '../config/links';
 
 interface FaqItem {
   question: string;
@@ -33,7 +34,7 @@ const FAQ_DATA: FaqItem[] = [
   },
   {
     question: 'Como funciona a garantia?',
-    answer: 'Você tem 7 dias para testar. Se não gostar, é só chamar o suporte e devolvemos todo o valor.',
+    answer: 'Você tem 7 dias para testar. Se não gostar, é só chamar o suporte pelo e-mail ' + EMAIL_SUPORTE + ' e devolvemos todo o valor.',
   },
 ];
 

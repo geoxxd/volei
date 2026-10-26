@@ -5,6 +5,9 @@
  * Os parâmetros de UTM que estiverem na URL da página serão preservados automaticamente!
  */
 
+/** E-mail de suporte exibido na página. */
+export const EMAIL_SUPORTE = 'metodocodigodovolei@gmail.com';
+
 export const LINKS = {
   // Checkout do Plano Básico (R$ 10) - caso a pessoa decline o upsell no pop-up
   CHECKOUT_10: 'https://pay.lowify.com.br/checkout.php?product_id=CFtsW4',

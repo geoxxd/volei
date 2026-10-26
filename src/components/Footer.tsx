@@ -1,5 +1,6 @@
 
 import React, { useMemo } from 'react';
+import { EMAIL_SUPORTE } from '../config/links';
 
 export const Footer: React.FC = () => {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
@@ -19,6 +20,12 @@ export const Footer: React.FC = () => {
           <a href="#termos" className="hover:text-[#0E4B75] transition-colors underline">Política de Privacidade</a>
           {' • '}
           <a href="#termos" className="hover:text-[#0E4B75] transition-colors underline">Termos de Uso</a>
+        </p>
+
+        {/* Suporte */}
+        <p className="text-slate-600 font-medium">
+          Suporte:{' '}
+          <a href={`mailto:${EMAIL_SUPORTE}`} className="hover:text-[#0E4B75] transition-colors underline font-bold">{EMAIL_SUPORTE}</a>
         </p>
 
         {/* Copyright */}
