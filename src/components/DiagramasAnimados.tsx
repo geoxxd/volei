@@ -6,7 +6,7 @@ const DiagramaAnimado = React.lazy(() => import('./DiagramaAnimado').then((m) =>
 
 /** Reserva o espaço do diagrama (evita "pulo" da página) enquanto ele não foi carregado. */
 const Reserva: React.FC = () => (
-  <div className="rounded-3xl bg-[#F6DB8A]/60 border border-[#E2DBC9] aspect-[277.9/144.5] min-h-[200px]" aria-hidden="true" />
+  <div className="rounded-3xl bg-[#F6DB8A]/60 border border-[#E2DBC9] aspect-[277.9/144.5]" aria-hidden="true" />
 );
 
 export const DiagramasAnimados: React.FC = () => {
