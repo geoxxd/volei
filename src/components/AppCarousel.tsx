@@ -79,27 +79,30 @@ export const AppCarousel: React.FC = () => {
     'absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white text-[#0E4B75] border border-[#E2DBC9] shadow-md active:scale-95 transition cursor-pointer';
 
   return (
-    <div className="relative mx-auto w-full max-w-[400px]">
+    <div className="relative mx-auto w-full max-w-[420px]">
       {/* Celular com a tela ativa */}
       <div
-        className="relative mx-auto w-[calc(100%-72px)] max-w-[280px] sm:max-w-[315px]"
+        className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="absolute -inset-2 bg-gradient-to-tr from-[#FF9F1C]/25 via-[#0E4B75]/20 to-[#FF4A3F]/15 rounded-[40px] blur-xl opacity-70 pointer-events-none" />
-        <div className="relative rounded-[40px] sm:rounded-[44px] border-[5px] border-slate-800 bg-slate-950 shadow-2xl overflow-hidden aspect-[9/17.5]">
-          <img
-            key={SLIDES[currentIndex].id}
-            src={SLIDES[currentIndex].src}
-            width={640}
-            height={1316}
-            alt={SLIDES[currentIndex].alt}
-            loading="eager"
-            fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
-            decoding="async"
-            draggable={false}
-            className="absolute inset-0 w-full h-full object-fill select-none"
-          />
+        {/* Mesma moldura de celular que o vídeo do topo usava */}
+        <div className="relative rounded-[36px] p-2 bg-gradient-to-b from-slate-900 to-slate-950 shadow-2xl border-4 border-slate-700/80">
+          <div className="absolute -inset-4 bg-gradient-to-tr from-[#FF9F1C]/25 via-[#0E4B75]/20 to-[#FF4A3F]/20 rounded-[48px] blur-xl opacity-70 pointer-events-none -z-10" />
+          <div className="relative rounded-[28px] overflow-hidden aspect-[640/1316] bg-slate-950">
+            <img
+              key={SLIDES[currentIndex].id}
+              src={SLIDES[currentIndex].src}
+              width={640}
+              height={1316}
+              alt={SLIDES[currentIndex].alt}
+              loading="eager"
+              fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
+              decoding="async"
+              draggable={false}
+              className="absolute inset-0 w-full h-full object-cover select-none"
+            />
+          </div>
         </div>
       </div>
 
