@@ -76,18 +76,18 @@ export const AppCarousel: React.FC = () => {
   };
 
   const arrowClass =
-    'absolute top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white text-[#0E4B75] border border-[#E2DBC9] shadow-md active:scale-95 transition cursor-pointer';
+    'absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white text-[#0E4B75] border border-[#E2DBC9] shadow-md active:scale-95 transition cursor-pointer';
 
   return (
-    <div className="relative mx-auto w-full max-w-[290px] sm:max-w-[340px]">
+    <div className="relative mx-auto w-full max-w-[400px]">
       {/* Celular com a tela ativa */}
       <div
-        className="relative mx-auto w-[clamp(130px,calc((100vh-395px)*0.514),200px)] sm:w-[230px]"
+        className="relative mx-auto w-[calc(100%-72px)] max-w-[280px] sm:max-w-[315px]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
         <div className="absolute -inset-2 bg-gradient-to-tr from-[#FF9F1C]/25 via-[#0E4B75]/20 to-[#FF4A3F]/15 rounded-[40px] blur-xl opacity-70 pointer-events-none" />
-        <div className="relative rounded-[30px] sm:rounded-[38px] border-[4px] border-slate-800 bg-slate-950 shadow-2xl overflow-hidden aspect-[9/17.5]">
+        <div className="relative rounded-[40px] sm:rounded-[44px] border-[5px] border-slate-800 bg-slate-950 shadow-2xl overflow-hidden aspect-[9/17.5]">
           <img
             key={SLIDES[currentIndex].id}
             src={SLIDES[currentIndex].src}
