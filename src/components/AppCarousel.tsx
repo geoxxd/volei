@@ -82,7 +82,7 @@ export const AppCarousel: React.FC = () => {
     <div className="relative mx-auto w-full max-w-[290px] sm:max-w-[340px]">
       {/* Celular com a tela ativa */}
       <div
-        className="relative mx-auto w-[clamp(140px,calc((100vh-350px)*0.514),200px)] sm:w-[230px]"
+        className="relative mx-auto w-[clamp(130px,calc((100vh-395px)*0.514),200px)] sm:w-[230px]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
