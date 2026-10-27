@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Hero } from './components/Hero';
+import { HowToReceive } from './components/HowToReceive';
 import { DiagramasAnimados } from './components/DiagramasAnimados';
 import { TrainerTestimonials } from './components/TrainerTestimonials';
 import { Features } from './components/Features';
@@ -26,6 +27,9 @@ export default function App() {
 
       {/* 2. TOPO (HERO) */}
       <Hero />
+
+      {/* 3. COMO VOCÊ RECEBE O ACESSO */}
+      <HowToReceive />
 
       {/* 3.05 DIAGRAMAS ANIMADOS */}
       <DiagramasAnimados />
