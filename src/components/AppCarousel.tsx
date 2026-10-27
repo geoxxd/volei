@@ -30,8 +30,21 @@ export const AppCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
 
-  // Pré-carrega a tela anterior e a próxima para a troca ser instantânea
+  // Pré-carrega a tela anterior e a próxima para a troca ser instantânea.
+  // Só depois que a página terminou de carregar, para não disputar banda
+  // com a primeira tela (que é a maior imagem do topo).
+  const [paginaCarregada, setPaginaCarregada] = useState(
+    typeof document !== 'undefined' && document.readyState === 'complete'
+  );
   useEffect(() => {
+    if (paginaCarregada) return;
+    const marcar = () => setPaginaCarregada(true);
+    window.addEventListener('load', marcar, { once: true });
+    return () => window.removeEventListener('load', marcar);
+  }, [paginaCarregada]);
+
+  useEffect(() => {
+    if (!paginaCarregada) return;
     const vizinhas = [
       SLIDES[(currentIndex + 1) % SLIDES.length],
       SLIDES[(currentIndex - 1 + SLIDES.length) % SLIDES.length],
@@ -40,7 +53,7 @@ export const AppCarousel: React.FC = () => {
       const img = new Image();
       img.src = s.src;
     });
-  }, [currentIndex]);
+  }, [currentIndex, paginaCarregada]);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? SLIDES.length - 1 : prev - 1));
@@ -111,7 +124,8 @@ export const AppCarousel: React.FC = () => {
             width={640}
             height={1316}
             alt={SLIDES[currentIndex].alt}
-            loading={currentIndex === 0 ? 'eager' : 'lazy'}
+            loading="eager"
+            fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
             decoding="async"
             draggable={false}
             className="absolute inset-0 w-full h-full object-fill select-none"

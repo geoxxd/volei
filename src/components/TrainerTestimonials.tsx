@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import depoimento1 from '../assets/images/depoimentos/depoimento-1.webp';
 import depoimento2 from '../assets/images/depoimentos/depoimento-2.webp';
@@ -49,6 +49,29 @@ const DEPOIMENTOS: Depoimento[] = [
 export const TrainerTestimonials: React.FC = () => {
   const [index, setIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
+  const secaoRef = useRef<HTMLElement>(null);
+  const [perto, setPerto] = useState(false);
+
+  // Só pré-carrega o próximo print quando a seção está chegando na tela
+  useEffect(() => {
+    const el = secaoRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setPerto(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setPerto(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '400px 0px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   const total = DEPOIMENTOS.length;
 
   const go = (dir: number) => setIndex((i) => (i + dir + total) % total);
@@ -67,7 +90,7 @@ export const TrainerTestimonials: React.FC = () => {
   const next = DEPOIMENTOS[(index + 1) % total];
 
   return (
-    <section id="treinadores" className="py-12 sm:py-16 px-4 max-w-4xl mx-auto">
+    <section ref={secaoRef} id="treinadores" className="py-12 sm:py-16 px-4 max-w-4xl mx-auto">
       <h2 className="text-center text-3xl sm:text-4xl font-black text-[#0E4B75] tracking-tight uppercase text-balance">
         TREINADORES QUE JÁ UTILIZARAM E APROVARAM
       </h2>
@@ -85,11 +108,12 @@ export const TrainerTestimonials: React.FC = () => {
             width={item.w}
             height={item.h}
             alt={item.alt}
+            loading="lazy"
             decoding="async"
             className="block w-full h-full object-contain"
           />
         </figure>
-        <link rel="preload" as="image" href={next.src} />
+        {perto && <link rel="preload" as="image" href={next.src} />}
 
         <div className="mt-4 flex items-center justify-center gap-4">
           <button
