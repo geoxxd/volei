@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LINKS } from '../config/links';
 import { buildUrlWithParams } from '../utils/utm';
 
@@ -7,7 +7,12 @@ interface PricingProps {
 }
 
 export const Pricing: React.FC<PricingProps> = ({ onOpenUpsell }) => {
-  const checkout24Url = buildUrlWithParams(LINKS.CHECKOUT_24);
+  // O HTML vem pré-renderizado sem os parâmetros do anúncio; eles entram
+  // no link assim que a página carrega no celular (para a UTMify rastrear).
+  const [checkout24Url, setCheckout24Url] = useState<string>(LINKS.CHECKOUT_24);
+  useEffect(() => {
+    setCheckout24Url(buildUrlWithParams(LINKS.CHECKOUT_24));
+  }, []);
 
   return (
     <section id="planos" className="py-14 sm:py-20 px-4 max-w-5xl mx-auto scroll-mt-12">
