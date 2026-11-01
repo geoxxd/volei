@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TopBanner } from './components/TopBanner';
 import { Hero } from './components/Hero';
+import { AppPreviewCarousel } from './components/AppPreviewCarousel';
 import { HowToReceive } from './components/HowToReceive';
 import { DiagramasAnimados } from './components/DiagramasAnimados';
 import { TrainerTestimonials } from './components/TrainerTestimonials';
@@ -27,6 +28,9 @@ export default function App() {
 
       {/* 2. TOPO (HERO) */}
       <Hero />
+
+      {/* 2.1 VEJA O APP POR DENTRO (carrossel de telas) */}
+      <AppPreviewCarousel />
 
       {/* 3. COMO VOCÊ RECEBE O ACESSO */}
       <HowToReceive />
