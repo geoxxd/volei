@@ -32,11 +32,11 @@ export default function App() {
       {/* 2.1 VEJA O APP POR DENTRO (carrossel de telas) */}
       <AppPreviewCarousel />
 
-      {/* 3. COMO VOCÊ RECEBE O ACESSO */}
-      <HowToReceive />
-
-      {/* 3.05 DIAGRAMAS ANIMADOS */}
+      {/* 3. DIAGRAMAS ANIMADOS */}
       <DiagramasAnimados />
+
+      {/* 3.05 COMO VOCÊ RECEBE O ACESSO */}
+      <HowToReceive />
 
       {/* 3.1 DEPOIMENTOS DE TREINADORES (prints reais) */}
       <TrainerTestimonials />
