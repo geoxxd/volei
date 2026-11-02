@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Volume2 } from 'lucide-react';
 import { scrollToPlanos } from '../utils/utm';
 
-const VIDEO_SRC = 'https://i.imgur.com/GfgesKg.mp4';
+const VIDEO_SRC = 'https://i.imgur.com/OMJXWWc.mp4';
 
 export const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
           
           <video
             ref={videoRef}
-            poster="https://i.imgur.com/GfgesKg.jpg"
+            poster="https://i.imgur.com/OMJXWWc.jpg"
             preload="none"
             width={720}
             height={1280}
