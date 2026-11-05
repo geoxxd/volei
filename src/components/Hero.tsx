@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
 
       {/* Subheadline */}
       <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium">
-        App com todos os fundamentos da dupla de praia, diagramas de quadra, variações por nível e filtro por categoria, acesso direto pelo celular.
+        Do aquecimento à tática de jogo: saque, recepção, ataque, defesa, side-out e jogos reduzidos, com vídeos animados e variações por nível, direto no celular.
       </p>
 
       {/* Vídeo demonstrativo do aplicativo (Imgur a/7zDDHGV) */}
@@ -143,7 +143,7 @@ export const Hero: React.FC = () => {
         </span>
         <span className="text-slate-300">|</span>
         <span className="flex items-center gap-1.5 text-[#D97706]">
-          🎁 BÔNUS GRÁTIS
+          ♾️ ACESSO VITALÍCIO
         </span>
       </div>
     </section>
