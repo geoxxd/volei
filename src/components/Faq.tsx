@@ -10,7 +10,7 @@ interface FaqItem {
 const FAQ_DATA: FaqItem[] = [
   {
     question: 'Como recebo o acesso?',
-    answer: 'Assim que o pagamento é confirmado, o acesso chega no seu e-mail [e no seu WhatsApp]. É só abrir no celular e começar.',
+    answer: 'Assim que o pagamento é confirmado, o acesso chega no seu e-mail e no seu WhatsApp. É só abrir no celular e começar.',
   },
   {
     question: 'É de areia mesmo ou é treino de quadra adaptado?',
@@ -22,7 +22,7 @@ const FAQ_DATA: FaqItem[] = [
   },
   {
     question: 'Preciso de muito equipamento?',
-    answer: 'Não. [A maioria dos exercícios usa só bola, rede e cones ou fita de marcação.]',
+    answer: 'Não. A maioria dos exercícios usa só bola, rede e cones ou fita de marcação.',
   },
   {
     question: 'Já dou aula há anos. Serve para mim?',
@@ -30,7 +30,7 @@ const FAQ_DATA: FaqItem[] = [
   },
   {
     question: 'Funciona em qualquer celular?',
-    answer: '[Sim, funciona em Android e iPhone.]',
+    answer: 'Sim, funciona em Android e iPhone.',
   },
   {
     question: 'Como funciona a garantia?',
